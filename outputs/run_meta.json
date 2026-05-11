@@ -1,0 +1,27 @@
+{
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "n_requested": 20,
+  "n_loaded": 20,
+  "n_scored": 20,
+  "seed": 42,
+  "tolerance": 3,
+  "max_comments_per_file": 20,
+  "reviewers": [
+    "claude-sonnet-4-5",
+    "gpt-4o-mini",
+    "static"
+  ],
+  "resolved_models": {
+    "claude-sonnet-4-5": "claude-sonnet-4-5",
+    "gpt-4o-mini": "gpt-4o-mini"
+  },
+  "model_id_override": {},
+  "prompt_template_id": "v1",
+  "strict_oracle_mode": false,
+  "litellm_version": "1.83.9",
+  "wall_seconds": 423.75,
+  "timestamp": "2026-05-11T15:34:36Z",
+  "python_version": "3.9.12",
+  "platform": "Windows-10-10.0.22631-SP0"
+}

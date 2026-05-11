@@ -1,0 +1,4 @@
+reviewer,n_instances,instance_hit_rate,site_recall,false_positives_per_instance_mean,false_positives_per_instance_median,precision_at_1,precision_at_3,precision_at_5,latency_avg_seconds,total_estimated_cost_usd,n_instances_single_file,n_instances_multi_file,instance_hit_rate_single_file,instance_hit_rate_multi_file
+claude-sonnet-4-5,20,0.0,0.0,1.5,1.0,0.0,0.0,0.0,4.115450000000419,0.8738190000000001,20,0,0.0,0.0
+gpt-4o-mini,20,0.15,0.09375,2.2,2.5,0.15,0.1,0.08,6.773449999999139,0.0359496,20,0,0.15,0.0
+static,20,0.15,0.125,11.75,15.5,0.05,0.05,0.06,2.8577999999986785,0.0,20,0,0.15,0.0

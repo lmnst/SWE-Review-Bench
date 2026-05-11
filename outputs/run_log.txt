@@ -1,0 +1,22 @@
+------ Loading 20 instances from princeton-nlp/SWE-bench_Lite (seed=42) -------
+got 20 instances
+reviewer: claude-sonnet-4-5  resolved=claude-sonnet-4-5  context_window=200,000
+reviewer: gpt-4o-mini  resolved=gpt-4o-mini  context_window=128,000
+reviewer: static
+instance sympy__sympy-21627 ------------------------------------- 20/20 0:07:02
+------------------------------ Writing artefacts ------------------------------
+  outputs\results.csv (321 rows)
+  outputs\summary.csv
+  outputs\hit_fp_bar_chart.png
+  outputs\run_meta.json
+-------------------------------- Final summary --------------------------------
+                        Run summary (N=20, tolerance=3)                        
++-----------------------------------------------------------------------------+
+|      |     |      | FP¡­ | FP/¡­ |     |      |     |  avg | to¡­ |      |     |
+| rev¡­ | hi¡­ | sit¡­ | (m¡­ | (me¡­ | p@1 |  p@3 | p@5 | lat¡­ |   $ | sin¡­ | mu¡­ |
+|------+-----+------+-----+------+-----+------+-----+------+-----+------+-----|
+| cla¡­ | 0.¡­ | 0.00 | 1.¡­ | 1.00 | 0.¡­ | 0.00 | 0.¡­ | 4.1¡­ | $0¡­ | 0.0¡­ | 0.¡­ |
+| gpt¡­ | 0.¡­ | 0.09 | 2.¡­ | 2.50 | 0.¡­ | 0.10 | 0.¡­ | 6.7¡­ | $0¡­ | 0.1¡­ | 0.¡­ |
+| sta¡­ | 0.¡­ | 0.12 | 11¡­ | 15.¡­ | 0.¡­ | 0.05 | 0.¡­ | 2.8¡­ | $0¡­ | 0.1¡­ | 0.¡­ |
++-----------------------------------------------------------------------------+
+wall: 423.8s
