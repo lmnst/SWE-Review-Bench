@@ -1,0 +1,69 @@
+# SWE-Review-Bench (MVP)
+
+Evaluate whether LLM reviewers can locate buggy code in real SWE-bench Lite
+instances without access to any oracle information (issue text, fix patch,
+failing tests, or ground-truth line numbers).
+
+## Scope (Round 1, MVP only)
+
+- 20 instances sampled from `princeton-nlp/SWE-bench_Lite` (seed=42)
+- 2 LLM reviewers: Claude Sonnet (`claude-sonnet-4-5`) and `gpt-4o-mini`
+- 1 static baseline: union of filtered Ruff and Pylint warnings
+- Outputs: `results.csv`, `summary.csv`, one bar chart
+
+Hybrid reviewers, self-critique, calibration, Pareto curves, and the Verified
+split are explicitly out of scope.
+
+## Setup
+
+```bash
+cp .env.example .env  # fill in API keys before Milestone B
+pip install -e .[dev]
+```
+
+Windows users: GNU `make` is not installed by default. Use the underlying
+commands directly (see `Makefile` for the canonical command list).
+
+## Smoke test (Milestone A)
+
+```bash
+python -m swe_review_bench.run --smoke-test
+```
+
+Loads one instance, clones its repo, checks out the base commit, parses the
+fix patch into oracle sites, reads the touched files, and asserts that no
+oracle information leaks into the reviewer-facing payload. No LLM calls and
+no CSV writes happen at this stage.
+
+## Full run
+
+Available after Milestone D lands:
+
+```bash
+python -m swe_review_bench.run --n 20 --tolerance 3
+```
+
+## Layout
+
+```
+swe_review_bench/
+  run.py            CLI entry point (typer)
+  config.py         env loading + Config dataclass
+  data/             dataset loading, repo retrieval, oracle extraction
+  reviewers/        Reviewer ABC, LLM client, static baseline, cache
+  scoring/          line-range matching, hit-rate / FP / precision@k
+  reporting/        CSV export, bar chart
+  utils/            paths, hashing, JSON I/O
+tests/              unit tests
+outputs/            generated CSVs, chart, failures log
+.cache/             cloned repos and LLM response cache
+```
+
+## Hard rules
+
+- The reviewer prompt never contains the issue, fix patch, failing tests, or
+  oracle line numbers.
+- API keys are loaded only from `.env` and never logged.
+- `git clone` is the only network call to GitHub. No API, no crawling.
+- Instances that fail clone or checkout are logged to `outputs/failures.jsonl`
+  and skipped; the run continues.
