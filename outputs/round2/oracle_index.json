@@ -1,0 +1,473 @@
+{
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "seed": 42,
+  "n_requested": 20,
+  "strict_oracle_mode": false,
+  "instances": {
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "repo": "django/django",
+      "base_commit": "d26b2424437dabeeca94d7900b37d2df4410da0c",
+      "patch_sha256": "cf203df5a90df3747f2d9a59cb0d02620d70228c29cb0c3477e5509056c19c09",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/validators.py",
+          "line_start": 7,
+          "line_end": 13,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/auth/validators.py",
+          "line_start": 17,
+          "line_end": 23,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/validators.py"
+      ]
+    },
+    "django__django-11133": {
+      "instance_id": "django__django-11133",
+      "repo": "django/django",
+      "base_commit": "879cc3da6249e920b8d54518a0ae06de835d7373",
+      "patch_sha256": "a0fd6d0a4a1c733a1c6f98cbb524604ea24e643c26c5fcb152be4bfb29fb1c3d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/http/response.py",
+          "line_start": 229,
+          "line_end": 235,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/http/response.py"
+      ]
+    },
+    "django__django-11283": {
+      "instance_id": "django__django-11283",
+      "repo": "django/django",
+      "base_commit": "08a4ee06510ae45562c228eefbdcaac84bd38c7a",
+      "patch_sha256": "784f820070ee0d7f0c45124b314be7647bf70bffdabad5a3713b9e32d7dec8e0",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+          "line_start": 1,
+          "line_end": 5,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+          "line_start": 7,
+          "line_end": 12,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+          "line_start": 24,
+          "line_end": 33,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py"
+      ]
+    },
+    "django__django-11422": {
+      "instance_id": "django__django-11422",
+      "repo": "django/django",
+      "base_commit": "df46b329e0900e9e4dc1d60816c1dce6dfc1094e",
+      "patch_sha256": "9fb9c9642c897c1185d2fb8757020998a34afb2bc11c9d6585b3374ab379924d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/utils/autoreload.py",
+          "line_start": 114,
+          "line_end": 120,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/utils/autoreload.py"
+      ]
+    },
+    "django__django-12915": {
+      "instance_id": "django__django-12915",
+      "repo": "django/django",
+      "base_commit": "4652f1f0aa459a7b980441d629648707c32e36bf",
+      "patch_sha256": "97ac7831916118d4e0e25fb2fda7920bca9a9acd5e3fceef61dfcc4ea516150c",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/staticfiles/handlers.py",
+          "line_start": 1,
+          "line_end": 6,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/staticfiles/handlers.py",
+          "line_start": 52,
+          "line_end": 57,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/staticfiles/handlers.py"
+      ]
+    },
+    "django__django-13033": {
+      "instance_id": "django__django-13033",
+      "repo": "django/django",
+      "base_commit": "a59de6e89e8dc1f3e71c9a5a5bbceb373ea5247e",
+      "patch_sha256": "aa5413fb3771640d18144cb4b95cabc16dcb0d6d81fbd323c6a4ad059eeeb5e1",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 727,
+          "line_end": 733,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/sql/compiler.py"
+      ]
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "repo": "django/django",
+      "base_commit": "36bc47069ce071e80c8129500de3b8664d2058a7",
+      "patch_sha256": "fee7f9e8aebfa2ffaa94f38d65e3b962f1fc4d1abf5066486c809686b176c338",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/forms/models.py",
+          "line_start": 97,
+          "line_end": 106,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/forms/models.py"
+      ]
+    },
+    "django__django-13551": {
+      "instance_id": "django__django-13551",
+      "repo": "django/django",
+      "base_commit": "7f9e4524d6b23424cf44fbe1bf1f4e70f6bb066e",
+      "patch_sha256": "8f5a82819897d01aeb410296dd4e602b3a8be84d8e31577167ffe9ed74c0dd45",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/tokens.py",
+          "line_start": 78,
+          "line_end": 86,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/auth/tokens.py",
+          "line_start": 94,
+          "line_end": 100,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/tokens.py"
+      ]
+    },
+    "django__django-14382": {
+      "instance_id": "django__django-14382",
+      "repo": "django/django",
+      "base_commit": "29345aecf6e8d53ccb3577a3762bb0c263f7558d",
+      "patch_sha256": "c0c9645f081c7a05110a663136a09f26e804df7baa6612f78cccae3abad0c3e0",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/core/management/templates.py",
+          "line_start": 73,
+          "line_end": 81,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/core/management/templates.py"
+      ]
+    },
+    "django__django-15851": {
+      "instance_id": "django__django-15851",
+      "repo": "django/django",
+      "base_commit": "b4817d20b9e55df30be0b1b2ca8c8bb6d61aab07",
+      "patch_sha256": "d23e1d4544ee70e3e7e9773d80632826d9bd3da37f5e23a2b9570826fa7023c5",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/backends/postgresql/client.py",
+          "line_start": 32,
+          "line_end": 40,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/backends/postgresql/client.py"
+      ]
+    },
+    "django__django-16408": {
+      "instance_id": "django__django-16408",
+      "repo": "django/django",
+      "base_commit": "ef85b6bf0bc5a8b194f0724cf5bbedbcee402b96",
+      "patch_sha256": "87ea3c7bb9919de40291bdba536a9fe0d285192ddffbd87707eddc9b243f32fb",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 1274,
+          "line_end": 1279,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 1295,
+          "line_end": 1301,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/sql/compiler.py"
+      ]
+    },
+    "django__django-16816": {
+      "instance_id": "django__django-16816",
+      "repo": "django/django",
+      "base_commit": "191f6a9a4586b5e5f79f4f42f190e7ad4bbacc84",
+      "patch_sha256": "4a17b8b7b9bd12f10ca5448753a5098362c48de6e79b5846ffd1ddfa5180111d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/admin/checks.py",
+          "line_start": 916,
+          "line_end": 924,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/admin/checks.py"
+      ]
+    },
+    "django__django-17087": {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "patch_sha256": "02155d1bb6d521768355a166eeb616618853cebbd62bfd9f8deb360e5818f19f",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/migrations/serializer.py",
+          "line_start": 168,
+          "line_end": 174,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/migrations/serializer.py"
+      ]
+    },
+    "matplotlib__matplotlib-23476": {
+      "instance_id": "matplotlib__matplotlib-23476",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "33a0599711d26dc2b79f851c6daed4947df7c167",
+      "patch_sha256": "0d25d0202773e4f51f9b66bd1264428152e9c3e8ef71cb953ce0440eed7dcc60",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/matplotlib/figure.py",
+          "line_start": 3023,
+          "line_end": 3028,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/matplotlib/figure.py"
+      ]
+    },
+    "matplotlib__matplotlib-25498": {
+      "instance_id": "matplotlib__matplotlib-25498",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "78bf53caacbb5ce0dc7aa73f07a74c99f1ed919b",
+      "patch_sha256": "815d9d133ced1717ef91c09f641fe34572c2a822483b9d721dcae543f6bec49f",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/matplotlib/colorbar.py",
+          "line_start": 301,
+          "line_end": 311,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "lib/matplotlib/colorbar.py",
+          "line_start": 1101,
+          "line_end": 1107,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/matplotlib/colorbar.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8282": {
+      "instance_id": "sphinx-doc__sphinx-8282",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "2c2335bbb8af99fa132e1573bbf45dc91584d5a2",
+      "patch_sha256": "2f37479fcc8b2b615d85c032fa4258d37f6f77c1fd588c185e71a8303eaea4d9",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1240,
+          "line_end": 1246,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1474,
+          "line_end": 1480,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1882,
+          "line_end": 1888,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8474": {
+      "instance_id": "sphinx-doc__sphinx-8474",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "3ea1ec84cc610f7a9f4f6b354e264565254923ff",
+      "patch_sha256": "5e40a28ed9b23a2b5a513bd4ebaaea85c1540d0006e92c9142ab51bb8522a82b",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/domains/std.py",
+          "line_start": 852,
+          "line_end": 859,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/domains/std.py"
+      ]
+    },
+    "sympy__sympy-16792": {
+      "instance_id": "sympy__sympy-16792",
+      "repo": "sympy/sympy",
+      "base_commit": "09786a173e7a0a488f46dd6000177c23e5d24eed",
+      "patch_sha256": "4c45274d348e1d5179eb44c4273357eeef40400b7780aa03cfce05dba3a192d2",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/utilities/codegen.py",
+          "line_start": 695,
+          "line_end": 700,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/utilities/codegen.py",
+          "line_start": 703,
+          "line_end": 713,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sympy/utilities/codegen.py",
+          "line_start": 739,
+          "line_end": 745,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/utilities/codegen.py"
+      ]
+    },
+    "sympy__sympy-20442": {
+      "instance_id": "sympy__sympy-20442",
+      "repo": "sympy/sympy",
+      "base_commit": "1abbc0ac3e552cb184317194e5d5c5b9dd8fb640",
+      "patch_sha256": "e94292e05aa24871b2e6bdf194ae19cc157bed12b08a66f4f47c663146df2638",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/physics/units/util.py",
+          "line_start": 4,
+          "line_end": 9,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/physics/units/util.py",
+          "line_start": 30,
+          "line_end": 36,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/physics/units/util.py"
+      ]
+    },
+    "sympy__sympy-21627": {
+      "instance_id": "sympy__sympy-21627",
+      "repo": "sympy/sympy",
+      "base_commit": "126f80578140e752ad5135aac77b8ff887eede3e",
+      "patch_sha256": "b5ba97320a3af097a979e4fd2ec66ade3c7480c130a611a6c7aab137387144f2",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/functions/elementary/complexes.py",
+          "line_start": 607,
+          "line_end": 612,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/functions/elementary/complexes.py"
+      ]
+    }
+  }
+}

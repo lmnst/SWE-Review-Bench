@@ -1,0 +1,42 @@
+{
+  "generated_at_utc": "2026-05-11T16:16:32Z",
+  "project_root": "D:\\Jet_brains\\SWE-Review-Bench-MVP",
+  "files": [
+    {
+      "path": "outputs/results.csv",
+      "exists": true,
+      "sha256": "370e3babe2406787dfd45def8560e60e9fd9869ef029f3e0be634e63ebede602",
+      "file_size": 86193,
+      "mtime_utc": "2026-05-11T15:34:36Z"
+    },
+    {
+      "path": "outputs/summary.csv",
+      "exists": true,
+      "sha256": "4b08226b688de549f270bb0ad3f924022e1dc9cb823d1241cd84872df6de407c",
+      "file_size": 596,
+      "mtime_utc": "2026-05-11T15:34:36Z"
+    },
+    {
+      "path": "outputs/hit_fp_bar_chart.png",
+      "exists": true,
+      "sha256": "5ffd345db4d4633c966c1303606542fb434fa7ae928e5ecb17344ac3b2a08d8f",
+      "file_size": 40112,
+      "mtime_utc": "2026-05-11T15:34:36Z"
+    },
+    {
+      "path": "outputs/run_meta.json",
+      "exists": true,
+      "sha256": "e14d1e2fff51cda44d83c50d1c8dd9fd4d9c74cb8ffbe1f378907f365601b7df",
+      "file_size": 655,
+      "mtime_utc": "2026-05-11T15:34:36Z"
+    },
+    {
+      "path": "outputs/run_log.txt",
+      "exists": true,
+      "sha256": "e23c2d7f6ab096011c19497974c1b8c9c928f216f7a239ff1337811cdc549a7e",
+      "file_size": 1406,
+      "mtime_utc": "2026-05-11T15:34:36Z"
+    }
+  ],
+  "missing": []
+}

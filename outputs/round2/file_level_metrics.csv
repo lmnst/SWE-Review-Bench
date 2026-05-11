@@ -1,0 +1,4 @@
+reviewer,n_instances,line_level_hit_count,line_level_hit_rate,line_level_hit_rate_wilson_lo,line_level_hit_rate_wilson_hi,file_level_hit_count,file_level_hit_rate,file_level_hit_rate_wilson_lo,file_level_hit_rate_wilson_hi,gap_file_to_line,n_comments,comments_per_instance
+claude-sonnet-4-5,20,0,0.0,0.0,0.16113012549493322,16,0.8,0.5839782779742401,0.9193436467288,0.8,30,1.5
+gpt-4o-mini,20,3,0.15,0.05236779195949584,0.36042329588695743,13,0.65,0.43285051021946463,0.8188104521320554,0.5,49,2.45
+static,20,3,0.15,0.05236779195949584,0.36042329588695743,15,0.75,0.5312949900419365,0.888139947210597,0.6,242,12.1
