@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "SWE-Review-Bench MVP: evaluate LLM code reviewers on SWE-bench Lite without oracle leakage."
 readme = "README.md"
 requires-python = ">=3.9"
-authors = [{ name = "SWE-Review-Bench" }]
+authors = [{ name = "SWE-Review-Bench", email = "lmnstzz@gmail.com" }]
 dependencies = [
     "datasets>=2.18,<3",
     "pandas>=2.0",
