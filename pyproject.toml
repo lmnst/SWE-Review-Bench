@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swe-review-bench"
+version = "0.1.0"
+description = "SWE-Review-Bench MVP: evaluate LLM code reviewers on SWE-bench Lite without oracle leakage."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "SWE-Review-Bench" }]
+dependencies = [
+    "datasets>=2.18,<3",
+    "pandas>=2.0",
+    "pydantic>=2.5,<3",
+    "typer>=0.12",
+    "rich>=13.7",
+    "litellm>=1.50",
+    "unidiff>=0.7.5",
+    "matplotlib>=3.7",
+    "python-dotenv>=1.0",
+    "eval-type-backport>=0.2; python_version < '3.10'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "pylint>=3.2",
+]
+
+[project.scripts]
+swe-review-bench = "swe_review_bench.run:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["swe_review_bench*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

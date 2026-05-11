@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# IDE / agent session metadata
+.idea/
+.vscode/
+.claude/
+*.swp
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Project caches (all subdirectories, recursively)
+.cache/
+.cache/llm/
+.cache/repos/
+.cache/round1/
+.cache/round2/
+
+# Outputs cache only (do NOT ignore the outputs CSV/PNG headlines;
+# selectively allow the public-facing artefacts back in below)
+outputs/cache/
+outputs/round2/cache/
+
+# Compiled / OS noise
+*.pyc
