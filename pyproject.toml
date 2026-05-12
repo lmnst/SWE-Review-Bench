@@ -11,6 +11,7 @@ requires-python = ">=3.9"
 authors = [{ name = "SWE-Review-Bench", email = "lmnstzz@gmail.com" }]
 dependencies = [
     "datasets>=2.18,<3",
+    "huggingface_hub>=0.20",
     "pandas>=2.0",
     "pydantic>=2.5,<3",
     "typer>=0.12",

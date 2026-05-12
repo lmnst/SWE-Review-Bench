@@ -71,9 +71,15 @@ extracted from `test_patch`, or oracle line numbers.
 - Source: [`princeton-nlp/SWE-bench_Lite`](https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite), `split=test`.
 - Sampling: `random.Random(42).sample(range(len(ds)), 20)`, a
   deterministic 20-instance pilot.
-- Dataset revision: not pinned at Round 1 load time; recorded in
-  `outputs/run_meta.json` is the load timestamp (2026-05-11) and the
-  `litellm` and `datasets` versions used.
+- Dataset revision: not pinned at Round 1 load time. A post-hoc
+  snapshot of the HuggingFace dataset state, recorded at
+  `outputs/round2/h_lite/dataset_revision.json`, captures the
+  dataset commit hash (`hf_commit_sha`:
+  `6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2`); this snapshot
+  reflects the dataset state at snapshot time, not necessarily the
+  exact revision loaded during the Round 1 run on 2026-05-11. The
+  Round 1 load timestamp and the `litellm` and `datasets` library
+  versions remain in `outputs/run_meta.json`.
 
 This is a 20-instance pilot drawn from SWE-bench Lite's 300-instance
 test split. All headline numbers below carry Wilson 95% confidence
