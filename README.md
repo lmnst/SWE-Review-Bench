@@ -20,6 +20,19 @@ or maintainability issues in a structured JSON format. The oracle
 (the fix patch's line ranges) is read **only** by the scorer, after
 the reviewer has emitted its output.
 
+## Key finding (pilot, n=20)
+
+Claude Sonnet 4.5 emits comments on the correct oracle file in 16 of
+20 instances (80%, Wilson 95% CI [0.584, 0.919]) but locates the
+actual fix region in 0 of 20 (0%, [0.000, 0.161]). GPT-4o-mini shows
+the inverse pattern: file-level detection on 13 of 20 (65%, [0.433,
+0.819]) yet a nonzero line-level hit rate of 3 of 20 (15%, [0.052,
+0.360]); see Preliminary results. The pilot therefore suggests a
+decoupling between detection and localization under cold review,
+rather than a flat ordering of one model below another. All numbers
+carry wide Wilson intervals at n = 20, so the section should be read
+as direction-of-effect, not as a ranking.
+
 ## Task definition
 
 For each instance in the dataset, the reviewer's input is exactly:
