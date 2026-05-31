@@ -46,9 +46,9 @@ def _patch_fingerprint(patch_text: str) -> str:
     return hashlib.sha256(patch_text.encode("utf-8")).hexdigest()
 
 
-def reconstruct() -> tuple[dict, list[str]]:
+def reconstruct(n: int = 20, seed: int = 42) -> tuple[dict, list[str]]:
     instances: list[Instance] = load_instances(
-        n=20, seed=42, dataset="princeton-nlp/SWE-bench_Lite", split="test"
+        n=n, seed=seed, dataset="princeton-nlp/SWE-bench_Lite", split="test"
     )
 
     per_instance: dict[str, dict[str, Any]] = {}
@@ -73,8 +73,8 @@ def reconstruct() -> tuple[dict, list[str]]:
         {
             "dataset": "princeton-nlp/SWE-bench_Lite",
             "split": "test",
-            "seed": 42,
-            "n_requested": 20,
+            "seed": seed,
+            "n_requested": n,
             "strict_oracle_mode": False,
             "instances": per_instance,
         },
@@ -193,11 +193,24 @@ def write_log(
 
 
 def main() -> None:
-    ROUND2_DIR.mkdir(parents=True, exist_ok=True)
-    index, determinism_failures = reconstruct()
+    import argparse
+
+    p = argparse.ArgumentParser(description="Reconstruct the oracle site index.")
+    p.add_argument("--n", type=int, default=20, help="Number of instances.")
+    p.add_argument("--seed", type=int, default=42, help="Sampling seed.")
+    p.add_argument(
+        "--output-dir",
+        default=str(ROUND2_DIR),
+        help="Directory for oracle_index.json and the reconstruction log.",
+    )
+    args = p.parse_args()
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    index, determinism_failures = reconstruct(n=args.n, seed=args.seed)
     cross_check = cross_check_with_results_csv(index)
 
-    out_index = ROUND2_DIR / "oracle_index.json"
+    out_index = out_dir / "oracle_index.json"
     out_index.write_text(
         json.dumps(index, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -205,7 +218,7 @@ def main() -> None:
     print(f"wrote {out_index} ({len(index['instances'])} instances)")
 
     log = write_log(index, determinism_failures, cross_check)
-    out_log = ROUND2_DIR / "oracle_reconstruction_log.md"
+    out_log = out_dir / "oracle_reconstruction_log.md"
     out_log.write_text(log, encoding="utf-8")
     print(f"wrote {out_log}")
 

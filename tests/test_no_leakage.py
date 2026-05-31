@@ -1,6 +1,6 @@
 """Per-instance × per-variant oracle-leakage assertions.
 
-For every SWE-bench Lite instance in the 20-instance pilot and every
+For every SWE-bench Lite instance in the 100-instance sample and every
 Round 2 prompt variant (A, B, C), this test renders the prompt the
 reviewer would actually see and asserts that no oracle-derived content
 appears in it.
@@ -30,7 +30,8 @@ ordinary code-review language.
 
 This test runs the same expensive ``ensure_repo_at_commit`` step once
 per instance via a session-scoped fixture, so the wall time is
-dominated by git checkouts (~20 s) rather than the per-cell assertions.
+dominated by git checkouts (the first run also clones the repos new to
+the n=100 sample) rather than the per-cell assertions.
 """
 
 from __future__ import annotations
@@ -51,30 +52,111 @@ from swe_review_bench.run import _prepare_reviewer_inputs
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-# 20 instance IDs sampled with seed=42 from princeton-nlp/SWE-bench_Lite.
-# Hard-coded so collection time is constant; deterministic per
-# load_instances.
+# 100 instance IDs sampled with seed=42 from princeton-nlp/SWE-bench_Lite.
+# Hard-coded so test collection stays robust even without dataset access;
+# test_instance_ids_match_sample asserts this list equals
+# load_instances(n=100, seed=42), guarding against drift.
 INSTANCE_IDS: tuple[str, ...] = (
+    "astropy__astropy-14995",
+    "django__django-11001",
+    "django__django-11049",
     "django__django-11099",
     "django__django-11133",
+    "django__django-11179",
     "django__django-11283",
     "django__django-11422",
+    "django__django-11564",
+    "django__django-11583",
+    "django__django-11630",
+    "django__django-11797",
+    "django__django-11905",
+    "django__django-12708",
+    "django__django-12747",
+    "django__django-12908",
     "django__django-12915",
     "django__django-13033",
+    "django__django-13220",
     "django__django-13315",
+    "django__django-13321",
+    "django__django-13448",
     "django__django-13551",
+    "django__django-13590",
+    "django__django-13658",
+    "django__django-13757",
+    "django__django-13768",
+    "django__django-14017",
+    "django__django-14155",
     "django__django-14382",
+    "django__django-14580",
+    "django__django-14752",
+    "django__django-14787",
+    "django__django-14855",
+    "django__django-14997",
+    "django__django-15347",
+    "django__django-15498",
+    "django__django-15695",
+    "django__django-15789",
     "django__django-15851",
+    "django__django-15902",
+    "django__django-16400",
     "django__django-16408",
+    "django__django-16527",
     "django__django-16816",
+    "django__django-16873",
+    "django__django-17051",
     "django__django-17087",
     "matplotlib__matplotlib-23476",
+    "matplotlib__matplotlib-25079",
+    "matplotlib__matplotlib-25311",
     "matplotlib__matplotlib-25498",
+    "matplotlib__matplotlib-26020",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "psf__requests-863",
+    "pylint-dev__pylint-6506",
+    "pylint-dev__pylint-7080",
+    "pylint-dev__pylint-7228",
+    "pytest-dev__pytest-5103",
+    "pytest-dev__pytest-5227",
+    "pytest-dev__pytest-5413",
+    "pytest-dev__pytest-5692",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-7168",
+    "pytest-dev__pytest-7432",
+    "pytest-dev__pytest-7490",
+    "pytest-dev__pytest-9359",
+    "scikit-learn__scikit-learn-10508",
+    "scikit-learn__scikit-learn-10949",
+    "scikit-learn__scikit-learn-13496",
+    "scikit-learn__scikit-learn-13497",
+    "scikit-learn__scikit-learn-13779",
+    "scikit-learn__scikit-learn-14087",
+    "scikit-learn__scikit-learn-14092",
+    "sphinx-doc__sphinx-8273",
     "sphinx-doc__sphinx-8282",
     "sphinx-doc__sphinx-8474",
+    "sphinx-doc__sphinx-8595",
+    "sphinx-doc__sphinx-8721",
+    "sympy__sympy-12454",
+    "sympy__sympy-13177",
+    "sympy__sympy-13437",
+    "sympy__sympy-13480",
+    "sympy__sympy-13895",
+    "sympy__sympy-14817",
     "sympy__sympy-16792",
+    "sympy__sympy-17655",
+    "sympy__sympy-18087",
+    "sympy__sympy-19007",
+    "sympy__sympy-19254",
+    "sympy__sympy-20212",
+    "sympy__sympy-20322",
     "sympy__sympy-20442",
     "sympy__sympy-21627",
+    "sympy__sympy-22005",
+    "sympy__sympy-22714",
+    "sympy__sympy-23117",
+    "sympy__sympy-23191",
+    "sympy__sympy-23262",
 )
 
 
@@ -102,7 +184,7 @@ def _cfg():
 
 @pytest.fixture(scope="session")
 def _oracle_index() -> dict[str, Any]:
-    p = PROJECT_ROOT / "outputs" / "round2" / "oracle_index.json"
+    p = PROJECT_ROOT / "outputs" / "n100" / "oracle_index.json"
     return json.loads(p.read_text(encoding="utf-8"))
 
 
@@ -111,7 +193,7 @@ def _prepared(_cfg, tmp_path_factory) -> dict[str, tuple]:
     """Map ``instance_id -> (Instance, reviewer_inputs, error)``."""
     out: dict[str, tuple] = {}
     instances = load_instances(
-        n=20, seed=42, dataset="princeton-nlp/SWE-bench_Lite", split="test"
+        n=100, seed=42, dataset="princeton-nlp/SWE-bench_Lite", split="test"
     )
     failures_tmp = tmp_path_factory.mktemp("failures") / "failures.jsonl"
     for inst in instances:
@@ -167,7 +249,7 @@ def _oracle_lines_for(oracle_index: dict, instance_id: str) -> set[int]:
 
 
 # ---------------------------------------------------------------------------
-# Tests (20 instances x 3 variants = 60 parametrised cells)
+# Tests (100 instances x 3 variants = 300 parametrised cells)
 # ---------------------------------------------------------------------------
 
 
@@ -234,3 +316,15 @@ def test_no_oracle_leakage(
                 f"as a bare integer in the prompt for {ctx} after "
                 f"stripping source-numbering prefixes and known boilerplate"
             )
+
+
+def test_instance_ids_match_sample() -> None:
+    """Guard against drift: the hard-coded ids must equal the live sample."""
+    sampled = tuple(
+        i.instance_id
+        for i in load_instances(
+            n=100, seed=42, dataset="princeton-nlp/SWE-bench_Lite", split="test"
+        )
+    )
+    assert len(INSTANCE_IDS) == 100
+    assert sampled == INSTANCE_IDS
