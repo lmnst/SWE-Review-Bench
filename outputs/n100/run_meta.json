@@ -1,0 +1,33 @@
+{
+  "study": "n=100 preliminary",
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "n": 100,
+  "seed": 42,
+  "tolerance": 3,
+  "strict_oracle_mode": false,
+  "reviewers": [
+    "claude-sonnet-4-5",
+    "gpt-4o-mini",
+    "static"
+  ],
+  "variants_scaled": [
+    "A",
+    "B"
+  ],
+  "variant_c_note": "diagnostic-only, not scaled past the n=20 pilot",
+  "pilot_subset_verified": true,
+  "single_file_only": true,
+  "litellm_version": "1.83.9",
+  "python_version": "3.9.12",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "spend_usd": {
+    "claude-sonnet-4-5": 6.4281,
+    "gpt-4o-mini": 0.274,
+    "static": 0.0,
+    "total_n100": 6.7021
+  },
+  "spend_note": "GPT cost is from the GPT-only pass; the final variant_summary.csv shows $0 for GPT because the Claude pass re-read it from cache.",
+  "hard_cap_usd": 10.0,
+  "generated_at_utc": "2026-05-29T20:17:08Z"
+}

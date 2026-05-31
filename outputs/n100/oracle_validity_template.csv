@@ -1,0 +1,49 @@
+instance_id,repo,site_id,file,line_start,line_end,is_test_file,verdict,note
+django__django-13590,django/django,site-0001,django/db/models/sql/query.py,1077,1086,False,bug,rebuilds namedtuple from a generator; defect is in this range
+sympy__sympy-18087,sympy/sympy,site-0001,sympy/core/exprtools.py,358,365,False,related,0 -> S.Zero robustness; peripheral to the trig-simplify defect
+sympy__sympy-18087,sympy/sympy,site-0002,sympy/core/exprtools.py,448,461,False,bug,as_expr exponent handling is the simplification defect
+pytest-dev__pytest-5103,pytest-dev/pytest,site-0001,src/_pytest/assertion/rewrite.py,964,969,False,unrelated,feature (unroll all/any); lines are insertion context
+pytest-dev__pytest-5103,pytest-dev/pytest,site-0002,src/_pytest/assertion/rewrite.py,987,992,False,unrelated,feature insertion context
+pytest-dev__pytest-5103,pytest-dev/pytest,site-0003,src/_pytest/assertion/rewrite.py,997,1002,False,unrelated,feature insertion context
+scikit-learn__scikit-learn-13497,scikit-learn/scikit-learn,site-0001,sklearn/feature_selection/mutual_info_.py,10,16,False,unrelated,import-only hunk
+scikit-learn__scikit-learn-13497,scikit-learn/scikit-learn,site-0002,sklearn/feature_selection/mutual_info_.py,247,260,False,bug,discrete_features == 'auto' string-vs-array compare
+matplotlib__matplotlib-25079,matplotlib/matplotlib,site-0001,lib/matplotlib/colors.py,1362,1369,False,bug,autoscale emits intermediate callback; defect here
+sphinx-doc__sphinx-8273,sphinx-doc/sphinx,site-0001,sphinx/builders/manpage.py,24,30,False,unrelated,feature (man section dirs); import hunk
+sphinx-doc__sphinx-8273,sphinx-doc/sphinx,site-0002,sphinx/builders/manpage.py,80,86,False,unrelated,feature; targetname insertion context
+sphinx-doc__sphinx-8273,sphinx-doc/sphinx,site-0003,sphinx/builders/manpage.py,115,120,False,unrelated,feature; add_config_value insertion
+pylint-dev__pylint-7080,pylint-dev/pylint,site-0001,pylint/lint/expand_modules.py,52,57,False,bug,_is_ignored_file misses path normalization
+psf__requests-863,psf/requests,site-0001,requests/models.py,462,469,False,related,spec-dependent; cold review cannot tell append-vs-extend is wrong
+astropy__astropy-14995,astropy/astropy,site-0001,astropy/nddata/mixins/ndarithmetic.py,520,529,False,bug,operand is None should be operand.mask is None
+pallets__flask-4045,pallets/flask,site-0001,src/flask/blueprints.py,188,193,False,unrelated,adds name-dot validation; existing __init__ lines have no defect
+pallets__flask-4045,pallets/flask,site-0002,src/flask/blueprints.py,360,371,False,related,assert -> raise ValueError hardening
+django__django-15498,django/django,site-0001,django/views/static.py,129,140,False,bug,unhandled None match and swallowed AttributeError
+sympy__sympy-23117,sympy/sympy,site-0001,sympy/tensor/array/ndim_array.py,145,154,False,related,_parse_index change; secondary
+sympy__sympy-23117,sympy/sympy,site-0002,sympy/tensor/array/ndim_array.py,194,199,False,bug,empty-iterable handling in shape scan is the defect
+sympy__sympy-23117,sympy/sympy,site-0003,sympy/tensor/array/ndim_array.py,567,577,False,unrelated,_check_index_for_getitem style refactor
+pytest-dev__pytest-7168,pytest-dev/pytest,site-0001,src/_pytest/_io/saferepr.py,20,26,False,bug,obj.__class__ fails when __getattribute__ raises
+scikit-learn__scikit-learn-13779,scikit-learn/scikit-learn,site-0001,sklearn/ensemble/voting.py,78,83,False,bug,missing None-estimator check before fit param probe
+matplotlib__matplotlib-25498,matplotlib/matplotlib,site-0001,lib/matplotlib/colorbar.py,301,311,False,bug,premature autoscale_None in __init__ (removed by fix)
+matplotlib__matplotlib-25498,matplotlib/matplotlib,site-0002,lib/matplotlib/colorbar.py,1101,1107,False,bug,autoscale must happen in _process_values
+sphinx-doc__sphinx-8474,sphinx-doc/sphinx,site-0001,sphinx/domains/std.py,852,859,False,related,"fix only rewords the warning, not a root-cause defect"
+pylint-dev__pylint-6506,pylint-dev/pylint,site-0001,pylint/config/config_initialization.py,81,88,False,bug,raises traceback instead of friendly error
+psf__requests-1963,psf/requests,site-0001,requests/sessions.py,168,175,False,bug,req not updated to prepared_request across redirects
+django__django-12908,django/django,site-0001,django/db/models/query.py,1138,1143,False,bug,distinct on combined query not rejected
+sympy__sympy-19254,sympy/sympy,site-0001,sympy/polys/factortools.py,124,136,False,unrelated,enhancement (Knuth-Cohen bound replaces Mignotte)
+pytest-dev__pytest-5227,pytest-dev/pytest,site-0001,src/_pytest/logging.py,15,21,False,unrelated,enhancement (default log format preference)
+scikit-learn__scikit-learn-13496,scikit-learn/scikit-learn,site-0001,sklearn/ensemble/iforest.py,120,125,False,unrelated,feature (expose warm_start); docstring
+scikit-learn__scikit-learn-13496,scikit-learn/scikit-learn,site-0002,sklearn/ensemble/iforest.py,173,179,False,unrelated,feature; __init__ signature
+scikit-learn__scikit-learn-13496,scikit-learn/scikit-learn,site-0003,sklearn/ensemble/iforest.py,185,190,False,unrelated,feature; super().__init__ kwarg
+matplotlib__matplotlib-26020,matplotlib/matplotlib,site-0001,lib/mpl_toolkits/axes_grid1/axes_grid.py,1,5,False,unrelated,import-only hunk (MethodType)
+matplotlib__matplotlib-26020,matplotlib/matplotlib,site-0002,lib/mpl_toolkits/axes_grid1/axes_grid.py,7,20,False,bug,_tick_only subscripts ax.axis which may be a method
+sphinx-doc__sphinx-8282,sphinx-doc/sphinx,site-0001,sphinx/ext/autodoc/__init__.py,1240,1246,False,bug,format_signature ignores autodoc_typehints for overloads
+sphinx-doc__sphinx-8282,sphinx-doc/sphinx,site-0002,sphinx/ext/autodoc/__init__.py,1474,1480,False,bug,same missing typehints condition
+sphinx-doc__sphinx-8282,sphinx-doc/sphinx,site-0003,sphinx/ext/autodoc/__init__.py,1882,1888,False,bug,same missing typehints condition
+pylint-dev__pylint-7228,pylint-dev/pylint,site-0001,pylint/config/argument.py,99,109,False,related,csv-regex path; secondary to the direct regexp transformer
+pylint-dev__pylint-7228,pylint-dev/pylint,site-0002,pylint/config/argument.py,130,136,False,bug,function-rgx hits TYPE_TRANSFORMERS['regexp']=re.compile directly
+django__django-12915,django/django,site-0001,django/contrib/staticfiles/handlers.py,1,6,False,unrelated,import (sync_to_async)
+django__django-12915,django/django,site-0002,django/contrib/staticfiles/handlers.py,52,57,False,related,missing async method; lines are insertion context
+sympy__sympy-20212,sympy/sympy,site-0001,sympy/core/power.py,291,296,False,bug,0**-oo case missing in Pow.__new__
+pytest-dev__pytest-6116,pytest-dev/pytest,site-0001,src/_pytest/main.py,109,114,False,unrelated,feature (--co shortcut)
+scikit-learn__scikit-learn-10508,scikit-learn/scikit-learn,site-0001,sklearn/preprocessing/label.py,126,131,False,bug,transform of empty array not handled
+scikit-learn__scikit-learn-10508,scikit-learn/scikit-learn,site-0002,sklearn/preprocessing/label.py,147,152,False,bug,inverse_transform of empty array not handled
+matplotlib__matplotlib-23476,matplotlib/matplotlib,site-0001,lib/matplotlib/figure.py,3023,3028,False,bug,dpi doubled on unpickle (M1)

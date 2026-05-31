@@ -1,0 +1,5 @@
+contrast,group_x,group_y,n,x_hits,y_hits,both_hit,x_only,y_only,neither,p_value
+reviewer,claude-sonnet-4-5/A,gpt-4o-mini/A,100,12,7,1,11,6,82,0.332305908203125
+reviewer,claude-sonnet-4-5/B,gpt-4o-mini/B,100,16,29,10,6,19,65,0.01463329792022705
+prompt,claude-sonnet-4-5/A,claude-sonnet-4-5/B,100,12,16,9,3,7,81,0.34375
+prompt,gpt-4o-mini/A,gpt-4o-mini/B,100,7,29,7,0,22,71,4.76837158203125e-07

@@ -1,0 +1,2 @@
+reviewer,n_instances,instance_hit_rate,site_recall,false_positives_per_instance_mean,false_positives_per_instance_median,precision_at_1,precision_at_3,precision_at_5,latency_avg_seconds,total_estimated_cost_usd,n_instances_single_file,n_instances_multi_file,instance_hit_rate_single_file,instance_hit_rate_multi_file
+static,100,0.27,0.2080536912751678,12.41,13.0,0.09,0.09333333333333334,0.08650000000000001,2.781469999992987,0,100,0,0.27,0.0

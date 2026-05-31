@@ -1,0 +1,13 @@
+tolerance,reviewer,prompt_variant,instance_hits,n_instances,instance_hit_rate
+0,claude-sonnet-4-5,A,10,100,0.1
+0,claude-sonnet-4-5,B,14,100,0.14
+0,gpt-4o-mini,A,6,100,0.06
+0,gpt-4o-mini,B,20,100,0.2
+3,claude-sonnet-4-5,A,12,100,0.12
+3,claude-sonnet-4-5,B,16,100,0.16
+3,gpt-4o-mini,A,7,100,0.07
+3,gpt-4o-mini,B,29,100,0.29
+10,claude-sonnet-4-5,A,18,100,0.18
+10,claude-sonnet-4-5,B,24,100,0.24
+10,gpt-4o-mini,A,12,100,0.12
+10,gpt-4o-mini,B,40,100,0.4

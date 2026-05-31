@@ -1,0 +1,2252 @@
+{
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "seed": 42,
+  "n_requested": 100,
+  "strict_oracle_mode": false,
+  "instances": {
+    "astropy__astropy-14995": {
+      "instance_id": "astropy__astropy-14995",
+      "repo": "astropy/astropy",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "patch_sha256": "370b3ff97b3a0627c29b74cf0b60bae46fe75edcd35a8d121c2dbe0f0421899a",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "astropy/nddata/mixins/ndarithmetic.py",
+          "line_start": 520,
+          "line_end": 529,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "astropy/nddata/mixins/ndarithmetic.py"
+      ]
+    },
+    "django__django-11001": {
+      "instance_id": "django__django-11001",
+      "repo": "django/django",
+      "base_commit": "ef082ebb84f00e38af4e8880d04e8365c2766d34",
+      "patch_sha256": "ad6b8e8ed7854750e064ea5008306035931828a60ba85a65918763880eb71c34",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 32,
+          "line_end": 38,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/sql/compiler.py"
+      ]
+    },
+    "django__django-11049": {
+      "instance_id": "django__django-11049",
+      "repo": "django/django",
+      "base_commit": "17455e924e243e7a55e8a38f45966d8cbb27c273",
+      "patch_sha256": "50a0b98d35636acd0531c8e990b7084061ff336867dad1073378c2b0a022078f",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/fields/__init__.py",
+          "line_start": 1587,
+          "line_end": 1593,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/fields/__init__.py"
+      ]
+    },
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "repo": "django/django",
+      "base_commit": "d26b2424437dabeeca94d7900b37d2df4410da0c",
+      "patch_sha256": "cf203df5a90df3747f2d9a59cb0d02620d70228c29cb0c3477e5509056c19c09",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/validators.py",
+          "line_start": 7,
+          "line_end": 13,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/auth/validators.py",
+          "line_start": 17,
+          "line_end": 23,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/validators.py"
+      ]
+    },
+    "django__django-11133": {
+      "instance_id": "django__django-11133",
+      "repo": "django/django",
+      "base_commit": "879cc3da6249e920b8d54518a0ae06de835d7373",
+      "patch_sha256": "a0fd6d0a4a1c733a1c6f98cbb524604ea24e643c26c5fcb152be4bfb29fb1c3d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/http/response.py",
+          "line_start": 229,
+          "line_end": 235,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/http/response.py"
+      ]
+    },
+    "django__django-11179": {
+      "instance_id": "django__django-11179",
+      "repo": "django/django",
+      "base_commit": "19fc6376ce67d01ca37a91ef2f55ef769f50513a",
+      "patch_sha256": "a1896338de07ff4fa040d7e692a1c954e44f3cac29f6db8bd7f15820a123b45f",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/deletion.py",
+          "line_start": 277,
+          "line_end": 282,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/deletion.py"
+      ]
+    },
+    "django__django-11283": {
+      "instance_id": "django__django-11283",
+      "repo": "django/django",
+      "base_commit": "08a4ee06510ae45562c228eefbdcaac84bd38c7a",
+      "patch_sha256": "784f820070ee0d7f0c45124b314be7647bf70bffdabad5a3713b9e32d7dec8e0",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+          "line_start": 1,
+          "line_end": 5,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+          "line_start": 7,
+          "line_end": 12,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+          "line_start": 24,
+          "line_end": 33,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py"
+      ]
+    },
+    "django__django-11422": {
+      "instance_id": "django__django-11422",
+      "repo": "django/django",
+      "base_commit": "df46b329e0900e9e4dc1d60816c1dce6dfc1094e",
+      "patch_sha256": "9fb9c9642c897c1185d2fb8757020998a34afb2bc11c9d6585b3374ab379924d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/utils/autoreload.py",
+          "line_start": 114,
+          "line_end": 120,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/utils/autoreload.py"
+      ]
+    },
+    "django__django-11564": {
+      "instance_id": "django__django-11564",
+      "repo": "django/django",
+      "base_commit": "580e644f24f1c5ae5b94784fb73a9953a178fd26",
+      "patch_sha256": "85742264db3f85980438a75ea582a1984d541772b66d2ce0979d812adff9784e",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/conf/__init__.py",
+          "line_start": 15,
+          "line_end": 21,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/conf/__init__.py",
+          "line_start": 109,
+          "line_end": 114,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "django/conf/__init__.py",
+          "line_start": 128,
+          "line_end": 133,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/conf/__init__.py"
+      ]
+    },
+    "django__django-11583": {
+      "instance_id": "django__django-11583",
+      "repo": "django/django",
+      "base_commit": "60dc957a825232fdda9138e2f8878b2ca407a7c9",
+      "patch_sha256": "4725ae0dfda57d5ee07afffd548e4ed978dce9ea0ac4988debd7d3d719e0dfea",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/utils/autoreload.py",
+          "line_start": 143,
+          "line_end": 148,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/utils/autoreload.py"
+      ]
+    },
+    "django__django-11630": {
+      "instance_id": "django__django-11630",
+      "repo": "django/django",
+      "base_commit": "65e86948b80262574058a94ccaae3a9b59c3faea",
+      "patch_sha256": "8b3ff50fedb28ff7588f5496636368e4fd50982e75da4b160ff8fedec429054b",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/core/checks/model_checks.py",
+          "line_start": 4,
+          "line_end": 10,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/core/checks/model_checks.py",
+          "line_start": 35,
+          "line_end": 48,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/core/checks/model_checks.py"
+      ]
+    },
+    "django__django-11797": {
+      "instance_id": "django__django-11797",
+      "repo": "django/django",
+      "base_commit": "3346b78a8a872286a245d1e77ef4718fc5e6be1a",
+      "patch_sha256": "cfde8b687291827ea302e212a5fea662448f6dae983f6ca8ac7800ee6d53369a",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/lookups.py",
+          "line_start": 262,
+          "line_end": 270,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/lookups.py"
+      ]
+    },
+    "django__django-11905": {
+      "instance_id": "django__django-11905",
+      "repo": "django/django",
+      "base_commit": "2f72480fbd27896c986c45193e1603e35c0b19a7",
+      "patch_sha256": "270d9b4ea721775122907a5e127421ba1c0bdbd9f3b659a2105899a1bd53aaae",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/lookups.py",
+          "line_start": 1,
+          "line_end": 5,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/db/models/lookups.py",
+          "line_start": 9,
+          "line_end": 14,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "django/db/models/lookups.py",
+          "line_start": 463,
+          "line_end": 468,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/lookups.py"
+      ]
+    },
+    "django__django-12708": {
+      "instance_id": "django__django-12708",
+      "repo": "django/django",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "patch_sha256": "03645a06338c386b3596536f4fc0be3522e41df03185b96cb9f87d90ad52fa86",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/backends/base/schema.py",
+          "line_start": 393,
+          "line_end": 399,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/backends/base/schema.py"
+      ]
+    },
+    "django__django-12747": {
+      "instance_id": "django__django-12747",
+      "repo": "django/django",
+      "base_commit": "c86201b6ed4f8256b0a0520c08aa674f623d4127",
+      "patch_sha256": "ff171b34d328823f6a016cda471129cc8c549902ca23eec23a60402d5efd85a5",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/deletion.py",
+          "line_start": 408,
+          "line_end": 414,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/db/models/deletion.py",
+          "line_start": 426,
+          "line_end": 432,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/deletion.py"
+      ]
+    },
+    "django__django-12908": {
+      "instance_id": "django__django-12908",
+      "repo": "django/django",
+      "base_commit": "49ae7ce50a874f8a04cd910882fb9571ff3a0d7a",
+      "patch_sha256": "b5fde7040e07c8a8c94149ee818256481f86b0c14deb155903b31180575a8886",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/query.py",
+          "line_start": 1138,
+          "line_end": 1143,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/query.py"
+      ]
+    },
+    "django__django-12915": {
+      "instance_id": "django__django-12915",
+      "repo": "django/django",
+      "base_commit": "4652f1f0aa459a7b980441d629648707c32e36bf",
+      "patch_sha256": "97ac7831916118d4e0e25fb2fda7920bca9a9acd5e3fceef61dfcc4ea516150c",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/staticfiles/handlers.py",
+          "line_start": 1,
+          "line_end": 6,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/staticfiles/handlers.py",
+          "line_start": 52,
+          "line_end": 57,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/staticfiles/handlers.py"
+      ]
+    },
+    "django__django-13033": {
+      "instance_id": "django__django-13033",
+      "repo": "django/django",
+      "base_commit": "a59de6e89e8dc1f3e71c9a5a5bbceb373ea5247e",
+      "patch_sha256": "aa5413fb3771640d18144cb4b95cabc16dcb0d6d81fbd323c6a4ad059eeeb5e1",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 727,
+          "line_end": 733,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/sql/compiler.py"
+      ]
+    },
+    "django__django-13220": {
+      "instance_id": "django__django-13220",
+      "repo": "django/django",
+      "base_commit": "16218c20606d8cd89c5393970c83da04598a3e04",
+      "patch_sha256": "9d9ec8f21fbf76f4a16e80ce6659bf047bb6fd60b0c409a11d69a045893d9d51",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/core/exceptions.py",
+          "line_start": 1,
+          "line_end": 6,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/core/exceptions.py",
+          "line_start": 182,
+          "line_end": 187,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/core/exceptions.py"
+      ]
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "repo": "django/django",
+      "base_commit": "36bc47069ce071e80c8129500de3b8664d2058a7",
+      "patch_sha256": "fee7f9e8aebfa2ffaa94f38d65e3b962f1fc4d1abf5066486c809686b176c338",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/forms/models.py",
+          "line_start": 97,
+          "line_end": 106,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/forms/models.py"
+      ]
+    },
+    "django__django-13321": {
+      "instance_id": "django__django-13321",
+      "repo": "django/django",
+      "base_commit": "35b03788b0607c1f8d2b64e4fa9e1669b0907ea4",
+      "patch_sha256": "e1d3c892ea86908e9f6249eda6469b01dcada91a25c9eafde3da5b770ec7dc9c",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/sessions/backends/base.py",
+          "line_start": 121,
+          "line_end": 126,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/sessions/backends/base.py"
+      ]
+    },
+    "django__django-13448": {
+      "instance_id": "django__django-13448",
+      "repo": "django/django",
+      "base_commit": "7b9596b974fb0ad1868b10c8c2174e10b72be403",
+      "patch_sha256": "cafd7a8b842c998147842d1b92ed3f9a0e1bb1e3291c10dfae3c5903ac00b018",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/backends/base/creation.py",
+          "line_start": 58,
+          "line_end": 64,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/db/backends/base/creation.py",
+          "line_start": 69,
+          "line_end": 74,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/backends/base/creation.py"
+      ]
+    },
+    "django__django-13551": {
+      "instance_id": "django__django-13551",
+      "repo": "django/django",
+      "base_commit": "7f9e4524d6b23424cf44fbe1bf1f4e70f6bb066e",
+      "patch_sha256": "8f5a82819897d01aeb410296dd4e602b3a8be84d8e31577167ffe9ed74c0dd45",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/tokens.py",
+          "line_start": 78,
+          "line_end": 86,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/auth/tokens.py",
+          "line_start": 94,
+          "line_end": 100,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/tokens.py"
+      ]
+    },
+    "django__django-13590": {
+      "instance_id": "django__django-13590",
+      "repo": "django/django",
+      "base_commit": "755dbf39fcdc491fe9b588358303e259c7750be4",
+      "patch_sha256": "ba7ed1d4001a3c163610b60e1784459414c19490ce01c7cd30bf98681b0cc0d8",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/sql/query.py",
+          "line_start": 1077,
+          "line_end": 1086,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/sql/query.py"
+      ]
+    },
+    "django__django-13658": {
+      "instance_id": "django__django-13658",
+      "repo": "django/django",
+      "base_commit": "0773837e15bb632afffb6848a58c59a791008fa1",
+      "patch_sha256": "667081efc6e0e867f91fe6549e1b73d5de3cc02a95d1659d476040c4c96d47f5",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/core/management/__init__.py",
+          "line_start": 344,
+          "line_end": 350,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/core/management/__init__.py"
+      ]
+    },
+    "django__django-13757": {
+      "instance_id": "django__django-13757",
+      "repo": "django/django",
+      "base_commit": "3f140dde51c0fe6c350acb7727bbe489a99f0632",
+      "patch_sha256": "b6be4919dd2dce63bff8f7f28f178e13439fd0064d57a21b12a7abb92e18eb8e",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/fields/json.py",
+          "line_start": 366,
+          "line_end": 379,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/fields/json.py"
+      ]
+    },
+    "django__django-13768": {
+      "instance_id": "django__django-13768",
+      "repo": "django/django",
+      "base_commit": "965d2d95c630939b53eb60d9c169f5dfc77ee0c6",
+      "patch_sha256": "d0e765aea3be1713c4cc997770cb26dcf87a5b0088663c011ce8fd4910457031",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/dispatch/dispatcher.py",
+          "line_start": 1,
+          "line_end": 3,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/dispatch/dispatcher.py",
+          "line_start": 5,
+          "line_end": 10,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "django/dispatch/dispatcher.py",
+          "line_start": 208,
+          "line_end": 213,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/dispatch/dispatcher.py"
+      ]
+    },
+    "django__django-14017": {
+      "instance_id": "django__django-14017",
+      "repo": "django/django",
+      "base_commit": "466920f6d726eee90d5566e0a9948e92b33a122e",
+      "patch_sha256": "15c067a3f0ff5f31fc8160b54e7e2e8c80f34d2d6b83a214d22df4338bc7b7d0",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/query_utils.py",
+          "line_start": 40,
+          "line_end": 46,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/query_utils.py"
+      ]
+    },
+    "django__django-14155": {
+      "instance_id": "django__django-14155",
+      "repo": "django/django",
+      "base_commit": "2f13c476abe4ba787b6cb71131818341911f43cc",
+      "patch_sha256": "61d14e3a2a18ccca02273a04b47f56e5b49f37ed037f684c2207aecce90a1816",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/urls/resolvers.py",
+          "line_start": 59,
+          "line_end": 67,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/urls/resolvers.py"
+      ]
+    },
+    "django__django-14382": {
+      "instance_id": "django__django-14382",
+      "repo": "django/django",
+      "base_commit": "29345aecf6e8d53ccb3577a3762bb0c263f7558d",
+      "patch_sha256": "c0c9645f081c7a05110a663136a09f26e804df7baa6612f78cccae3abad0c3e0",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/core/management/templates.py",
+          "line_start": 73,
+          "line_end": 81,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/core/management/templates.py"
+      ]
+    },
+    "django__django-14580": {
+      "instance_id": "django__django-14580",
+      "repo": "django/django",
+      "base_commit": "36fa071d6ebd18a61c4d7f1b5c9d17106134bd44",
+      "patch_sha256": "b86a035653ee3b5dabb56972ff8895b08b514e6de5a603e194ceeb9ed227f7c8",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/migrations/serializer.py",
+          "line_start": 273,
+          "line_end": 279,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/migrations/serializer.py"
+      ]
+    },
+    "django__django-14752": {
+      "instance_id": "django__django-14752",
+      "repo": "django/django",
+      "base_commit": "b64db05b9cedd96905d637a2d824cbbf428e40e7",
+      "patch_sha256": "53ef09b36c3c1ed4cd4b99a2c13075a54b42fcbac0803e527af11ef6a4703dcc",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/admin/views/autocomplete.py",
+          "line_start": 11,
+          "line_end": 17,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/contrib/admin/views/autocomplete.py",
+          "line_start": 26,
+          "line_end": 37,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/admin/views/autocomplete.py"
+      ]
+    },
+    "django__django-14787": {
+      "instance_id": "django__django-14787",
+      "repo": "django/django",
+      "base_commit": "004b4620f6f4ad87261e149898940f2dcd5757ef",
+      "patch_sha256": "96d2dfb5441604f64daf06f4bc5ce0877dd5ab7db83a11835d1201d067ca92a6",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/utils/decorators.py",
+          "line_start": 37,
+          "line_end": 43,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/utils/decorators.py"
+      ]
+    },
+    "django__django-14855": {
+      "instance_id": "django__django-14855",
+      "repo": "django/django",
+      "base_commit": "475cffd1d64c690cdad16ede4d5e81985738ceb4",
+      "patch_sha256": "d3030b5f4fad5c863ff06db624c2394aa0a7f8e23a3bc281954555e703488016",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/admin/helpers.py",
+          "line_start": 209,
+          "line_end": 215,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/admin/helpers.py"
+      ]
+    },
+    "django__django-14997": {
+      "instance_id": "django__django-14997",
+      "repo": "django/django",
+      "base_commit": "0d4e575c96d408e0efb4dfd0cbfc864219776950",
+      "patch_sha256": "2711bd52ea195a1f305200728e75eb6093419273f72c16dc2f396737fad31b7b",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/backends/ddl_references.py",
+          "line_start": 212,
+          "line_end": 222,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/backends/ddl_references.py"
+      ]
+    },
+    "django__django-15347": {
+      "instance_id": "django__django-15347",
+      "repo": "django/django",
+      "base_commit": "7c4f3965098baad2396e24501e09237425a7bd6f",
+      "patch_sha256": "17762e80dbf22612bf72224d37c7f40c3ff48b9073580cce34bedd516bcb39b6",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/messages/storage/cookie.py",
+          "line_start": 19,
+          "line_end": 25,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/messages/storage/cookie.py"
+      ]
+    },
+    "django__django-15498": {
+      "instance_id": "django__django-15498",
+      "repo": "django/django",
+      "base_commit": "d90e34c61b27fba2527834806639eebbcfab9631",
+      "patch_sha256": "34ae3ea20a530907ad31ee5037974c3d48c5d5c3af45b1521915e2d5fa61810a",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/views/static.py",
+          "line_start": 129,
+          "line_end": 140,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/views/static.py"
+      ]
+    },
+    "django__django-15695": {
+      "instance_id": "django__django-15695",
+      "repo": "django/django",
+      "base_commit": "647480166bfe7532e8c471fef0146e3a17e6c0c9",
+      "patch_sha256": "7d0932bd7b423b787a0b7e34ef3875efcbf1e9a54987ae7e3094db2b4987f748",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/migrations/operations/models.py",
+          "line_start": 960,
+          "line_end": 965,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/migrations/operations/models.py"
+      ]
+    },
+    "django__django-15789": {
+      "instance_id": "django__django-15789",
+      "repo": "django/django",
+      "base_commit": "d4d5427571b4bf3a21c902276c2a00215c2a37cc",
+      "patch_sha256": "101ff0884f636157bcd7426cb98296a2998135201439a817c4f64786eca88b6e",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/utils/html.py",
+          "line_start": 59,
+          "line_end": 65,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/utils/html.py",
+          "line_start": 67,
+          "line_end": 73,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/utils/html.py"
+      ]
+    },
+    "django__django-15851": {
+      "instance_id": "django__django-15851",
+      "repo": "django/django",
+      "base_commit": "b4817d20b9e55df30be0b1b2ca8c8bb6d61aab07",
+      "patch_sha256": "d23e1d4544ee70e3e7e9773d80632826d9bd3da37f5e23a2b9570826fa7023c5",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/backends/postgresql/client.py",
+          "line_start": 32,
+          "line_end": 40,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/backends/postgresql/client.py"
+      ]
+    },
+    "django__django-15902": {
+      "instance_id": "django__django-15902",
+      "repo": "django/django",
+      "base_commit": "44c24bf02835323d5418512ebe8e76166739ebf8",
+      "patch_sha256": "0bfbeb2d8f825240fe2e3601a0209a2f796647ef49f9ec172c67277d2efc7b6d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/forms/formsets.py",
+          "line_start": 32,
+          "line_end": 37,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/forms/formsets.py"
+      ]
+    },
+    "django__django-16400": {
+      "instance_id": "django__django-16400",
+      "repo": "django/django",
+      "base_commit": "0bd2c0c9015b53c41394a1c0989afbfd94dc2830",
+      "patch_sha256": "8c31b8511a83ba8d560f3efcc69c15954b86b9172009d981e850335c1ab30f1c",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/auth/management/__init__.py",
+          "line_start": 95,
+          "line_end": 105,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/auth/management/__init__.py"
+      ]
+    },
+    "django__django-16408": {
+      "instance_id": "django__django-16408",
+      "repo": "django/django",
+      "base_commit": "ef85b6bf0bc5a8b194f0724cf5bbedbcee402b96",
+      "patch_sha256": "87ea3c7bb9919de40291bdba536a9fe0d285192ddffbd87707eddc9b243f32fb",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 1274,
+          "line_end": 1279,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "django/db/models/sql/compiler.py",
+          "line_start": 1295,
+          "line_end": 1301,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/sql/compiler.py"
+      ]
+    },
+    "django__django-16527": {
+      "instance_id": "django__django-16527",
+      "repo": "django/django",
+      "base_commit": "bd366ca2aeffa869b7dbc0b0aa01caea75e6dc31",
+      "patch_sha256": "ec7af453a8f6fa122e425dd81aff110fb5296aca4cac987699c967b9125cc9c3",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/admin/templatetags/admin_modify.py",
+          "line_start": 100,
+          "line_end": 106,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/admin/templatetags/admin_modify.py"
+      ]
+    },
+    "django__django-16816": {
+      "instance_id": "django__django-16816",
+      "repo": "django/django",
+      "base_commit": "191f6a9a4586b5e5f79f4f42f190e7ad4bbacc84",
+      "patch_sha256": "4a17b8b7b9bd12f10ca5448753a5098362c48de6e79b5846ffd1ddfa5180111d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/contrib/admin/checks.py",
+          "line_start": 916,
+          "line_end": 924,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/contrib/admin/checks.py"
+      ]
+    },
+    "django__django-16873": {
+      "instance_id": "django__django-16873",
+      "repo": "django/django",
+      "base_commit": "fce90950bef348803fa7cc3e6bc65f4bce429b82",
+      "patch_sha256": "2257e76c384a77480f111a92b57e7a136ad011b68119e57222e45ce932218782",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/template/defaultfilters.py",
+          "line_start": 586,
+          "line_end": 593,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/template/defaultfilters.py"
+      ]
+    },
+    "django__django-17051": {
+      "instance_id": "django__django-17051",
+      "repo": "django/django",
+      "base_commit": "b7a17b0ea0a2061bae752a3a2292007d41825814",
+      "patch_sha256": "5b8368267020051daa3dda9342a7ab0ade1dff918519c39d62bfc32bd0c361a0",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/models/query.py",
+          "line_start": 1837,
+          "line_end": 1848,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/models/query.py"
+      ]
+    },
+    "django__django-17087": {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "patch_sha256": "02155d1bb6d521768355a166eeb616618853cebbd62bfd9f8deb360e5818f19f",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "django/db/migrations/serializer.py",
+          "line_start": 168,
+          "line_end": 174,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "django/db/migrations/serializer.py"
+      ]
+    },
+    "matplotlib__matplotlib-23476": {
+      "instance_id": "matplotlib__matplotlib-23476",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "33a0599711d26dc2b79f851c6daed4947df7c167",
+      "patch_sha256": "0d25d0202773e4f51f9b66bd1264428152e9c3e8ef71cb953ce0440eed7dcc60",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/matplotlib/figure.py",
+          "line_start": 3023,
+          "line_end": 3028,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/matplotlib/figure.py"
+      ]
+    },
+    "matplotlib__matplotlib-25079": {
+      "instance_id": "matplotlib__matplotlib-25079",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "66f7956984cbfc3647e867c6e5fde889a89c64ef",
+      "patch_sha256": "9fc331cd517d8f8e404f6b60f4d5281a57eada9a08b6153e4af96a31814ee1a1",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/matplotlib/colors.py",
+          "line_start": 1362,
+          "line_end": 1369,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/matplotlib/colors.py"
+      ]
+    },
+    "matplotlib__matplotlib-25311": {
+      "instance_id": "matplotlib__matplotlib-25311",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "430fb1db88843300fb4baae3edc499bbfe073b0c",
+      "patch_sha256": "ee3099538e208594133db33016f7487f7bc92b7ee702b17b815bb98874714a72",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/matplotlib/offsetbox.py",
+          "line_start": 1505,
+          "line_end": 1511,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "lib/matplotlib/offsetbox.py",
+          "line_start": 1514,
+          "line_end": 1519,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/matplotlib/offsetbox.py"
+      ]
+    },
+    "matplotlib__matplotlib-25498": {
+      "instance_id": "matplotlib__matplotlib-25498",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "78bf53caacbb5ce0dc7aa73f07a74c99f1ed919b",
+      "patch_sha256": "815d9d133ced1717ef91c09f641fe34572c2a822483b9d721dcae543f6bec49f",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/matplotlib/colorbar.py",
+          "line_start": 301,
+          "line_end": 311,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "lib/matplotlib/colorbar.py",
+          "line_start": 1101,
+          "line_end": 1107,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/matplotlib/colorbar.py"
+      ]
+    },
+    "matplotlib__matplotlib-26020": {
+      "instance_id": "matplotlib__matplotlib-26020",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "f6a781f77f5ddf1204c60ca7c544809407d4a807",
+      "patch_sha256": "3b4449b50f1536023eff1e9194901b59e9d632f26710d29259eb0e9fb5eed592",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "lib/mpl_toolkits/axes_grid1/axes_grid.py",
+          "line_start": 1,
+          "line_end": 5,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "lib/mpl_toolkits/axes_grid1/axes_grid.py",
+          "line_start": 7,
+          "line_end": 20,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "lib/mpl_toolkits/axes_grid1/axes_grid.py"
+      ]
+    },
+    "pallets__flask-4045": {
+      "instance_id": "pallets__flask-4045",
+      "repo": "pallets/flask",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "patch_sha256": "6c4055e1cb35cf9c5d50bbba639af1787d6f5d5146f9539cedc364a43d01c687",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/flask/blueprints.py",
+          "line_start": 188,
+          "line_end": 193,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "src/flask/blueprints.py",
+          "line_start": 360,
+          "line_end": 371,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/flask/blueprints.py"
+      ]
+    },
+    "psf__requests-1963": {
+      "instance_id": "psf__requests-1963",
+      "repo": "psf/requests",
+      "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+      "patch_sha256": "deb8b9018ea0271b2b9dc2d883bf5fb0ca9a721ecc9a93718065926fbec4ed74",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "requests/sessions.py",
+          "line_start": 168,
+          "line_end": 175,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "requests/sessions.py"
+      ]
+    },
+    "psf__requests-863": {
+      "instance_id": "psf__requests-863",
+      "repo": "psf/requests",
+      "base_commit": "a0df2cbb10419037d11d04352b3175405ab52941",
+      "patch_sha256": "1fe8ef6f159643d4f5c4d06ef1ceddc6d8fa789dfcc58cd5e52eef98e43985d2",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "requests/models.py",
+          "line_start": 462,
+          "line_end": 469,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "requests/models.py"
+      ]
+    },
+    "pylint-dev__pylint-6506": {
+      "instance_id": "pylint-dev__pylint-6506",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "0a4204fd7555cfedd43f43017c94d24ef48244a5",
+      "patch_sha256": "d998b15278fc2bfaddeeb5d44319201298246247a7ed18c76203e9d27d12b12a",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "pylint/config/config_initialization.py",
+          "line_start": 81,
+          "line_end": 88,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "pylint/config/config_initialization.py"
+      ]
+    },
+    "pylint-dev__pylint-7080": {
+      "instance_id": "pylint-dev__pylint-7080",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "3c5eca2ded3dd2b59ebaf23eb289453b5d2930f0",
+      "patch_sha256": "f908ad1f6d4b8df3755a634c6741abf8ae613bc59278a54c16560c16d255580f",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "pylint/lint/expand_modules.py",
+          "line_start": 52,
+          "line_end": 57,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "pylint/lint/expand_modules.py"
+      ]
+    },
+    "pylint-dev__pylint-7228": {
+      "instance_id": "pylint-dev__pylint-7228",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "d597f252915ddcaaa15ccdfcb35670152cb83587",
+      "patch_sha256": "8b6796ff816cae34a8ba96c465e367f321f95931a64b9dff5932f0f9ab701d1b",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "pylint/config/argument.py",
+          "line_start": 99,
+          "line_end": 109,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "pylint/config/argument.py",
+          "line_start": 130,
+          "line_end": 136,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "pylint/config/argument.py"
+      ]
+    },
+    "pytest-dev__pytest-5103": {
+      "instance_id": "pytest-dev__pytest-5103",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "10ca84ffc56c2dd2d9dc4bd71b7b898e083500cd",
+      "patch_sha256": "5b621eb0099e1e4eeb2bcb42f24a48b15b540e46fe23403475890578f546680c",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/assertion/rewrite.py",
+          "line_start": 964,
+          "line_end": 969,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "src/_pytest/assertion/rewrite.py",
+          "line_start": 987,
+          "line_end": 992,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "src/_pytest/assertion/rewrite.py",
+          "line_start": 997,
+          "line_end": 1002,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/assertion/rewrite.py"
+      ]
+    },
+    "pytest-dev__pytest-5227": {
+      "instance_id": "pytest-dev__pytest-5227",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "2051e30b9b596e944524ccb787ed20f9f5be93e3",
+      "patch_sha256": "e8193ea0dee0989323f0f7756f492d73cdc2e584b61f9142b8695d9ed2737893",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/logging.py",
+          "line_start": 15,
+          "line_end": 21,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/logging.py"
+      ]
+    },
+    "pytest-dev__pytest-5413": {
+      "instance_id": "pytest-dev__pytest-5413",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "450d2646233c670654744d3d24330b69895bb9d2",
+      "patch_sha256": "34f5b421e92cf10334e75169f11e7f4a6e20cec510e6b679d26eb455e093e53f",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/_code/code.py",
+          "line_start": 534,
+          "line_end": 546,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/_code/code.py"
+      ]
+    },
+    "pytest-dev__pytest-5692": {
+      "instance_id": "pytest-dev__pytest-5692",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "29e336bd9bf87eaef8e2683196ee1975f1ad4088",
+      "patch_sha256": "b5c39d27ceb0f43490a3942bd256305511ee80f6719ea1e3e7ec1cda49560b2b",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/junitxml.py",
+          "line_start": 10,
+          "line_end": 18,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "src/_pytest/junitxml.py",
+          "line_start": 666,
+          "line_end": 671,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/junitxml.py"
+      ]
+    },
+    "pytest-dev__pytest-6116": {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "patch_sha256": "2d80109efb3ae83bdebc1338be3407baebef89458fe00d4553397359d41ce611",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/main.py",
+          "line_start": 109,
+          "line_end": 114,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/main.py"
+      ]
+    },
+    "pytest-dev__pytest-7168": {
+      "instance_id": "pytest-dev__pytest-7168",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "4787fd64a4ca0dba5528b5651bddd254102fe9f3",
+      "patch_sha256": "6461134e72ddd5997decb656090500402441f32d12bc9f583a9bce0e2f3e806b",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/_io/saferepr.py",
+          "line_start": 20,
+          "line_end": 26,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/_io/saferepr.py"
+      ]
+    },
+    "pytest-dev__pytest-7432": {
+      "instance_id": "pytest-dev__pytest-7432",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e6e300e729dd33956e5448d8be9a0b1540b4e53a",
+      "patch_sha256": "fe1bcec846085b964928724c5e75591b1e0280ef37dd9cdb7faf31a89cfcf062",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/skipping.py",
+          "line_start": 291,
+          "line_end": 297,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/skipping.py"
+      ]
+    },
+    "pytest-dev__pytest-7490": {
+      "instance_id": "pytest-dev__pytest-7490",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "7f7a36478abe7dd1fa993b115d22606aa0e35e88",
+      "patch_sha256": "88a7af7e123619306d887c6a9bd1f905acc4872b454df914094c038b71356e30",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/skipping.py",
+          "line_start": 231,
+          "line_end": 247,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "src/_pytest/skipping.py",
+          "line_start": 250,
+          "line_end": 261,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/skipping.py"
+      ]
+    },
+    "pytest-dev__pytest-9359": {
+      "instance_id": "pytest-dev__pytest-9359",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "patch_sha256": "2d9598fe2b5eaf3e92ba22058dc2acc4b5d13dd0f2ef1e4fc6b7541e0db6055d",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "src/_pytest/_code/source.py",
+          "line_start": 149,
+          "line_end": 154,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "src/_pytest/_code/source.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-10508": {
+      "instance_id": "scikit-learn__scikit-learn-10508",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "c753b77ac49e72ebc0fe5e3c2369fe628f975017",
+      "patch_sha256": "7664039eb8b692bddab2bcf1ad5e20b59cd319827a8b2b792818b0769d5d6065",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/preprocessing/label.py",
+          "line_start": 126,
+          "line_end": 131,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sklearn/preprocessing/label.py",
+          "line_start": 147,
+          "line_end": 152,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/preprocessing/label.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-10949": {
+      "instance_id": "scikit-learn__scikit-learn-10949",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3b5abf76597ce6aff76192869f92647c1b5259e7",
+      "patch_sha256": "aa168cdbc5873f2b6658f12c884eacb82802b44ab74259f7266aa5d9d8f8f913",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/utils/validation.py",
+          "line_start": 466,
+          "line_end": 471,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sklearn/utils/validation.py",
+          "line_start": 581,
+          "line_end": 586,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/utils/validation.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-13496": {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "patch_sha256": "01a911f7883efec86adb960ec5819e5d06a75edbc86fee097d00bad123bdec29",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/ensemble/iforest.py",
+          "line_start": 120,
+          "line_end": 125,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sklearn/ensemble/iforest.py",
+          "line_start": 173,
+          "line_end": 179,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sklearn/ensemble/iforest.py",
+          "line_start": 185,
+          "line_end": 190,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/ensemble/iforest.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-13497": {
+      "instance_id": "scikit-learn__scikit-learn-13497",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "26f690961a52946dd2f53bf0fdd4264b2ae5be90",
+      "patch_sha256": "05b8e713181abb4e5cbb9c5b8d24fcf639cdad600f281a77f63ba64d7767a08d",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/feature_selection/mutual_info_.py",
+          "line_start": 10,
+          "line_end": 16,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sklearn/feature_selection/mutual_info_.py",
+          "line_start": 247,
+          "line_end": 260,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/feature_selection/mutual_info_.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-13779": {
+      "instance_id": "scikit-learn__scikit-learn-13779",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "b34751b7ed02b2cfcc36037fb729d4360480a299",
+      "patch_sha256": "6faf85c3ffaaebff5458d13c730b28c4d6acfded07cc733b80278df6d2166cb4",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/ensemble/voting.py",
+          "line_start": 78,
+          "line_end": 83,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/ensemble/voting.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-14087": {
+      "instance_id": "scikit-learn__scikit-learn-14087",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "a5743ed36fbd3fbc8e351bdab16561fbfca7dfa1",
+      "patch_sha256": "819cd93cf36a6010195b74dc7106b268d9af01516be29821358c06ea5fa7600f",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/linear_model/logistic.py",
+          "line_start": 2170,
+          "line_end": 2176,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sklearn/linear_model/logistic.py",
+          "line_start": 2180,
+          "line_end": 2187,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/linear_model/logistic.py"
+      ]
+    },
+    "scikit-learn__scikit-learn-14092": {
+      "instance_id": "scikit-learn__scikit-learn-14092",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "df7dd8391148a873d157328a4f0328528a0c4ed9",
+      "patch_sha256": "b5a75a0010d0187f864f207c53c950118b14c93407d1f6f65b08cd1b46e39b48",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sklearn/neighbors/nca.py",
+          "line_start": 13,
+          "line_end": 18,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sklearn/neighbors/nca.py",
+          "line_start": 299,
+          "line_end": 305,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sklearn/neighbors/nca.py",
+          "line_start": 318,
+          "line_end": 326,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sklearn/neighbors/nca.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8273": {
+      "instance_id": "sphinx-doc__sphinx-8273",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "88b81a06eb635a1596617f8971fa97a84c069e93",
+      "patch_sha256": "6bc8c98f2c699be3edf747a9603af7f3b7c7846626e89e86472bac0162b02751",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/builders/manpage.py",
+          "line_start": 24,
+          "line_end": 30,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sphinx/builders/manpage.py",
+          "line_start": 80,
+          "line_end": 86,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sphinx/builders/manpage.py",
+          "line_start": 115,
+          "line_end": 120,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/builders/manpage.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8282": {
+      "instance_id": "sphinx-doc__sphinx-8282",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "2c2335bbb8af99fa132e1573bbf45dc91584d5a2",
+      "patch_sha256": "2f37479fcc8b2b615d85c032fa4258d37f6f77c1fd588c185e71a8303eaea4d9",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1240,
+          "line_end": 1246,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1474,
+          "line_end": 1480,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1882,
+          "line_end": 1888,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8474": {
+      "instance_id": "sphinx-doc__sphinx-8474",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "3ea1ec84cc610f7a9f4f6b354e264565254923ff",
+      "patch_sha256": "5e40a28ed9b23a2b5a513bd4ebaaea85c1540d0006e92c9142ab51bb8522a82b",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/domains/std.py",
+          "line_start": 852,
+          "line_end": 859,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/domains/std.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8595": {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "patch_sha256": "e49e0193e868dbd51b26a9f09163ce7604090ed1676ff719f8dfb038424d6ad9",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/ext/autodoc/__init__.py",
+          "line_start": 1074,
+          "line_end": 1080,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    "sphinx-doc__sphinx-8721": {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "82ef497a8c88f0f6e50d84520e7276bfbf65025d",
+      "patch_sha256": "b280454dbde68b9fd743d03c4d07172306c61477330f337287c48af6e8fced04",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sphinx/ext/viewcode.py",
+          "line_start": 182,
+          "line_end": 187,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sphinx/ext/viewcode.py"
+      ]
+    },
+    "sympy__sympy-12454": {
+      "instance_id": "sympy__sympy-12454",
+      "repo": "sympy/sympy",
+      "base_commit": "d3fcdb72bfcbb560eb45264ac1c03f359436edef",
+      "patch_sha256": "49c926cd1a824b3a0916146935dfc212db6243d1355af21796bc1f588eb0743a",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/matrices/matrices.py",
+          "line_start": 641,
+          "line_end": 647,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/matrices/matrices.py",
+          "line_start": 1112,
+          "line_end": 1118,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/matrices/matrices.py"
+      ]
+    },
+    "sympy__sympy-13177": {
+      "instance_id": "sympy__sympy-13177",
+      "repo": "sympy/sympy",
+      "base_commit": "662cfb818e865f580e18b59efbb3540c34232beb",
+      "patch_sha256": "394d8cd19e30a1b3f07344ed700aefec03ea24e34f79ef9f65f6b917373837a8",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/core/mod.py",
+          "line_start": 39,
+          "line_end": 45,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/core/mod.py"
+      ]
+    },
+    "sympy__sympy-13437": {
+      "instance_id": "sympy__sympy-13437",
+      "repo": "sympy/sympy",
+      "base_commit": "674afc619d7f5c519b6a5393a8b0532a131e57e0",
+      "patch_sha256": "e4bd63feda4aca2fcbcd0458a8ba9fbee21d610ff0e03840a55968c625044db7",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/functions/combinatorial/numbers.py",
+          "line_start": 424,
+          "line_end": 429,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/functions/combinatorial/numbers.py"
+      ]
+    },
+    "sympy__sympy-13480": {
+      "instance_id": "sympy__sympy-13480",
+      "repo": "sympy/sympy",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "patch_sha256": "41082dc7d7056649551b032017765a96f3ed2c46811c320637843292f2460cf5",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/functions/elementary/hyperbolic.py",
+          "line_start": 587,
+          "line_end": 593,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/functions/elementary/hyperbolic.py"
+      ]
+    },
+    "sympy__sympy-13895": {
+      "instance_id": "sympy__sympy-13895",
+      "repo": "sympy/sympy",
+      "base_commit": "4da0b64558e9551a11a99bccc63557ba34f50c58",
+      "patch_sha256": "2ce04f2aef489bbe3b89742e06e679742443466637a56b6708d2363044b0e765",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/core/numbers.py",
+          "line_start": 2248,
+          "line_end": 2258,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/core/numbers.py",
+          "line_start": 2282,
+          "line_end": 2291,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/core/numbers.py"
+      ]
+    },
+    "sympy__sympy-14817": {
+      "instance_id": "sympy__sympy-14817",
+      "repo": "sympy/sympy",
+      "base_commit": "0dbdc0ea83d339936da175f8c3a97d0d6bafb9f8",
+      "patch_sha256": "2629d8f07e58f05b6b2ed9c2ed0dfb2826049b9c5a3b9173a85980e354c39f46",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/printing/pretty/pretty.py",
+          "line_start": 825,
+          "line_end": 831,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/printing/pretty/pretty.py"
+      ]
+    },
+    "sympy__sympy-16792": {
+      "instance_id": "sympy__sympy-16792",
+      "repo": "sympy/sympy",
+      "base_commit": "09786a173e7a0a488f46dd6000177c23e5d24eed",
+      "patch_sha256": "4c45274d348e1d5179eb44c4273357eeef40400b7780aa03cfce05dba3a192d2",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/utilities/codegen.py",
+          "line_start": 695,
+          "line_end": 700,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/utilities/codegen.py",
+          "line_start": 703,
+          "line_end": 713,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sympy/utilities/codegen.py",
+          "line_start": 739,
+          "line_end": 745,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/utilities/codegen.py"
+      ]
+    },
+    "sympy__sympy-17655": {
+      "instance_id": "sympy__sympy-17655",
+      "repo": "sympy/sympy",
+      "base_commit": "f5e965947af2410ded92cfad987aaf45262ea434",
+      "patch_sha256": "3e395e2082ba7354a0a006f76582d9422ede498c262f072e3f412c3eda3d2109",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/geometry/point.py",
+          "line_start": 278,
+          "line_end": 283,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/geometry/point.py"
+      ]
+    },
+    "sympy__sympy-18087": {
+      "instance_id": "sympy__sympy-18087",
+      "repo": "sympy/sympy",
+      "base_commit": "9da013ad0ddc3cd96fe505f2e47c63e372040916",
+      "patch_sha256": "07c2e75f11efb0d1173afd91d0c08a50593522e00adbdb08bc3888621caf4881",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/core/exprtools.py",
+          "line_start": 358,
+          "line_end": 365,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/core/exprtools.py",
+          "line_start": 448,
+          "line_end": 461,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/core/exprtools.py"
+      ]
+    },
+    "sympy__sympy-19007": {
+      "instance_id": "sympy__sympy-19007",
+      "repo": "sympy/sympy",
+      "base_commit": "f9e030b57623bebdc2efa7f297c1b5ede08fcebf",
+      "patch_sha256": "38129c208a3166eb2b285ff3e2de46edfda395f5ee9d14b70ceb492797708741",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/matrices/expressions/blockmatrix.py",
+          "line_start": 7,
+          "line_end": 13,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/matrices/expressions/blockmatrix.py",
+          "line_start": 234,
+          "line_end": 249,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/matrices/expressions/blockmatrix.py"
+      ]
+    },
+    "sympy__sympy-19254": {
+      "instance_id": "sympy__sympy-19254",
+      "repo": "sympy/sympy",
+      "base_commit": "e0ef1da13e2ab2a77866c05246f73c871ca9388c",
+      "patch_sha256": "404fa50ef899971b59d0d53ef375214388cd21e49a4715ce2d58aec57b89f753",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/polys/factortools.py",
+          "line_start": 124,
+          "line_end": 136,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/polys/factortools.py"
+      ]
+    },
+    "sympy__sympy-20212": {
+      "instance_id": "sympy__sympy-20212",
+      "repo": "sympy/sympy",
+      "base_commit": "a106f4782a9dbe7f8fd16030f15401d977e03ae9",
+      "patch_sha256": "07d36687d22f97e45425b5eab2cadc176f7a26753a2d0f5ff5953299b0c1adf0",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/core/power.py",
+          "line_start": 291,
+          "line_end": 296,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/core/power.py"
+      ]
+    },
+    "sympy__sympy-20322": {
+      "instance_id": "sympy__sympy-20322",
+      "repo": "sympy/sympy",
+      "base_commit": "ab864967e71c950a15771bb6c3723636026ba876",
+      "patch_sha256": "5399fa26e0af7393571b00dd01269547c64b035091c26a80a48e92ca4c21e5c7",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/core/mul.py",
+          "line_start": 7,
+          "line_end": 13,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/core/mul.py",
+          "line_start": 1262,
+          "line_end": 1288,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/core/mul.py"
+      ]
+    },
+    "sympy__sympy-20442": {
+      "instance_id": "sympy__sympy-20442",
+      "repo": "sympy/sympy",
+      "base_commit": "1abbc0ac3e552cb184317194e5d5c5b9dd8fb640",
+      "patch_sha256": "e94292e05aa24871b2e6bdf194ae19cc157bed12b08a66f4f47c663146df2638",
+      "n_sites": 2,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/physics/units/util.py",
+          "line_start": 4,
+          "line_end": 9,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/physics/units/util.py",
+          "line_start": 30,
+          "line_end": 36,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/physics/units/util.py"
+      ]
+    },
+    "sympy__sympy-21627": {
+      "instance_id": "sympy__sympy-21627",
+      "repo": "sympy/sympy",
+      "base_commit": "126f80578140e752ad5135aac77b8ff887eede3e",
+      "patch_sha256": "b5ba97320a3af097a979e4fd2ec66ade3c7480c130a611a6c7aab137387144f2",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/functions/elementary/complexes.py",
+          "line_start": 607,
+          "line_end": 612,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/functions/elementary/complexes.py"
+      ]
+    },
+    "sympy__sympy-22005": {
+      "instance_id": "sympy__sympy-22005",
+      "repo": "sympy/sympy",
+      "base_commit": "2c83657ff1c62fc2761b639469fdac7f7561a72a",
+      "patch_sha256": "10762dbd420f083b97d105bc6c7835a3b89f0d406b21e15bc09e12fad1a888d1",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/solvers/polysys.py",
+          "line_start": 240,
+          "line_end": 245,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/solvers/polysys.py"
+      ]
+    },
+    "sympy__sympy-22714": {
+      "instance_id": "sympy__sympy-22714",
+      "repo": "sympy/sympy",
+      "base_commit": "3ff4717b6aef6086e78f01cdfa06f64ae23aed7e",
+      "patch_sha256": "1e50cdf5a6d2ede21b40239ee2b9cc117f7356b9dbd979cc3236c1a0e789d289",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/geometry/point.py",
+          "line_start": 152,
+          "line_end": 158,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/geometry/point.py"
+      ]
+    },
+    "sympy__sympy-23117": {
+      "instance_id": "sympy__sympy-23117",
+      "repo": "sympy/sympy",
+      "base_commit": "c5cef2499d6eed024b0db5c792d6ec7c53baa470",
+      "patch_sha256": "05baa345b3ee6bb9d40b5eee0f5ef02cf18cfe23b79ea30a245212ea00ef9f89",
+      "n_sites": 3,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/tensor/array/ndim_array.py",
+          "line_start": 145,
+          "line_end": 154,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0002",
+          "file": "sympy/tensor/array/ndim_array.py",
+          "line_start": 194,
+          "line_end": 199,
+          "is_test_file": false
+        },
+        {
+          "site_id": "site-0003",
+          "file": "sympy/tensor/array/ndim_array.py",
+          "line_start": 567,
+          "line_end": 577,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/tensor/array/ndim_array.py"
+      ]
+    },
+    "sympy__sympy-23191": {
+      "instance_id": "sympy__sympy-23191",
+      "repo": "sympy/sympy",
+      "base_commit": "fa9b4b140ec0eaf75a62c1111131626ef0f6f524",
+      "patch_sha256": "82f40a995830558272b053ca01faeed0e96ccd90b5f42632fdcd40a9db40d3aa",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/printing/pretty/pretty.py",
+          "line_start": 1144,
+          "line_end": 1165,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/printing/pretty/pretty.py"
+      ]
+    },
+    "sympy__sympy-23262": {
+      "instance_id": "sympy__sympy-23262",
+      "repo": "sympy/sympy",
+      "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+      "patch_sha256": "cdb5c722cb72b1bf4a16b7c4f18b06094cbcec0ee1611d833038bf5daf801cf2",
+      "n_sites": 1,
+      "sites": [
+        {
+          "site_id": "site-0001",
+          "file": "sympy/utilities/lambdify.py",
+          "line_start": 956,
+          "line_end": 964,
+          "is_test_file": false
+        }
+      ],
+      "oracle_files": [
+        "sympy/utilities/lambdify.py"
+      ]
+    }
+  }
+}

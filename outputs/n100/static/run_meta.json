@@ -1,0 +1,22 @@
+{
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "n_requested": 100,
+  "n_loaded": 100,
+  "n_scored": 100,
+  "seed": 42,
+  "tolerance": 3,
+  "max_comments_per_file": 20,
+  "reviewers": [
+    "static"
+  ],
+  "resolved_models": {},
+  "model_id_override": {},
+  "prompt_template_id": "v1",
+  "strict_oracle_mode": false,
+  "litellm_version": "1.83.9",
+  "wall_seconds": 354.84,
+  "timestamp": "2026-05-29T17:53:25Z",
+  "python_version": "3.9.12",
+  "platform": "Windows-10-10.0.22631-SP0"
+}
