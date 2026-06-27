@@ -39,3 +39,5 @@ outputs/round2/cache/
 
 # Compiled / OS noise
 *.pyc
+.DS_Store
+Thumbs.db
