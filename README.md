@@ -1,6 +1,7 @@
 # SWE-Review-Bench
 
-A pilot benchmark for **cold code-review bug finding** on SWE-bench Lite.
+A benchmark for **cold code-review bug finding** on SWE-bench Lite.
+Current state: an evaluation pipeline and an n=100 preliminary study.
 
 ## Motivation
 
@@ -10,8 +11,8 @@ That is a *fix-given-issue* task: the system already knows where to
 look. A different and arguably harder question is whether a system
 can **locate** a defect from the source alone, without an issue
 report or failing tests to anchor on. The skill exercised in a real
-pre-commit code review, "is something wrong with this file?", is
-not what SWE-bench fix-resolved rate measures.
+pre-commit code review, "is something wrong with this file?", is not
+what SWE-bench fix-resolved rate measures.
 
 SWE-Review-Bench evaluates LLM-based and static reviewers under the
 cold-review setup: the reviewer is shown only the buggy file at its
@@ -20,18 +21,52 @@ or maintainability issues in a structured JSON format. The oracle
 (the fix patch's line ranges) is read **only** by the scorer, after
 the reviewer has emitted its output.
 
-## Key finding (pilot, n=20)
+## Key findings (n=100 preliminary study)
 
-Claude Sonnet 4.5 emits comments on the correct oracle file in 16 of
-20 instances (80%, Wilson 95% CI [0.584, 0.919]) but locates the
-actual fix region in 0 of 20 (0%, [0.000, 0.161]). GPT-4o-mini shows
-the inverse pattern: file-level detection on 13 of 20 (65%, [0.433,
-0.819]) yet a nonzero line-level hit rate of 3 of 20 (15%, [0.052,
-0.360]); see Preliminary results. The pilot therefore suggests a
-decoupling between detection and localization under cold review,
-rather than a flat ordering of one model below another. All numbers
-carry wide Wilson intervals at n = 20, so the section should be read
-as direction-of-effect, not as a ranking.
+The 100 instances are a strict superset of the original 20-instance
+pilot (the pilot ids are a deterministic subset under `seed=42`), so
+the pilot's cached reviewer outputs are reused rather than re-billed.
+All numbers below are at the default line tolerance `N=3` and carry
+Wilson 95% intervals where a rate is reported.
+
+**1. Prompt sensitivity is model-specific.** Removing one clause from
+the prompt body, the no-speculation instruction `"Do not invent
+issues. If the code looks correct to you, return an empty list."`,
+moves GPT-4o-mini's instance hit rate from 0.07 to 0.29 (22 instances
+flip to a hit, 0 flip away, McNemar exact p < 0.0001) but does not
+significantly move Claude Sonnet 4.5 (0.12 to 0.16, p = 0.34). The
+prompt sensitivity is a property of the model, not a shared effect.
+A consequence is that a single-prompt benchmark would report
+prompt-dependent, possibly inverted, reviewer rankings.
+
+**2. Precision, not hit rate, separates LLM reviewers from static
+analysis.** The static union of filtered Ruff and Pylint reaches a
+0.27 instance hit rate, comparable to the LLM reviewers, but only by
+emitting 12.41 false positives per instance. Claude under the
+baseline prompt emits 1.60. Even GPT-4o-mini's higher hit rate under
+the no-speculation-removed variant (0.29 vs Claude's 0.16) is
+volume-driven: it emits 565 comments against Claude's 237 over the
+100 instances.
+
+**3. The oracle has a measurable construct-validity ceiling.** A
+30-instance hand audit found that only 24 of 48 oracle sites (0.50,
+Wilson 95% [0.36, 0.64]) mark an actual defect a reviewer should
+flag, and 10 of 30 instances (0.33, [0.19, 0.51]) carry no
+cold-reviewable bug at all. Six of those ten are feature or
+enhancement requests where the pre-fix code has no defect and the
+oracle marks a feature insertion point. Headline rates should be read
+with this oracle noise in mind.
+
+Under the baseline prompt (Variant A) the two LLM reviewers are
+statistically indistinguishable on instance hit rate (Claude 0.12,
+GPT 0.07, McNemar p = 0.33). The benchmark does not claim a
+model-capability ranking on bug finding and is not designed to
+produce one.
+
+![Prompt-variant comparison, n=100](docs/figures/variant_comparison_n100.png)
+
+*n=100; error bars are Wilson 95% CIs. Variant A is the baseline
+prompt; Variant B removes the no-speculation clause.*
 
 ## Task definition
 
@@ -69,25 +104,22 @@ extracted from `test_patch`, or oracle line numbers.
 ## Dataset
 
 - Source: [`princeton-nlp/SWE-bench_Lite`](https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite), `split=test`.
-- Sampling: `random.Random(42).sample(range(len(ds)), 20)`, a
-  deterministic 20-instance pilot.
-- Dataset revision: not pinned at Round 1 load time. A post-hoc
-  snapshot of the HuggingFace dataset state, recorded at
-  `outputs/round2/h_lite/dataset_revision.json`, captures the
-  dataset commit hash (`hf_commit_sha`:
-  `6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2`); this snapshot
-  reflects the dataset state at snapshot time, not necessarily the
-  exact revision loaded during the Round 1 run on 2026-05-11. The
-  Round 1 load timestamp and the `litellm` and `datasets` library
-  versions remain in `outputs/run_meta.json`.
-
-This is a 20-instance pilot drawn from SWE-bench Lite's 300-instance
-test split. All headline numbers below carry Wilson 95% confidence
-intervals to make the small-sample uncertainty visible.
+- Sampling: `random.Random(42).sample(range(len(ds)), 100)`, a
+  deterministic 100-instance sample of the 300-instance test split.
+  Under the pinned environment the 20-instance pilot ids are an exact
+  subset of these 100, so pilot reviewer outputs are reused as cache
+  hits.
+- Single file per instance: SWE-bench Lite is a single-file-fix
+  subset, and all 100 sampled instances touch exactly one non-test
+  file. This study therefore has no multi-file breakdown; that would
+  require full SWE-bench or the Verified split.
+- Dataset revision: a post-hoc snapshot of the HuggingFace dataset
+  state is recorded at `outputs/round2/h_lite/dataset_revision.json`
+  (`hf_commit_sha`: `6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2`). The
+  load timestamp and the `litellm` and `datasets` library versions
+  are in the run metadata.
 
 ## Reviewers
-
-Round 1 evaluated three reviewers:
 
 | reviewer       | id (resolved) | source                                  |
 |---|---|---|
@@ -95,12 +127,12 @@ Round 1 evaluated three reviewers:
 | GPT-4o-mini    | `gpt-4o-mini`        | OpenAI API via `litellm` 1.83.9    |
 | Static union   | `static`             | Ruff (`F,E9,B,A`) ∪ Pylint (default minus `C,R,I,import-error,no-name-in-module`) |
 
-Static reviewer is intentionally Python-only and runs locally; both
-LLM reviewers are accessed through `litellm` so the same client code
-handles both providers. Static comments are capped at
+The static reviewer is intentionally Python-only and runs locally;
+both LLM reviewers are accessed through `litellm` so the same client
+code handles both providers. Static comments are capped at
 `--max-comments-per-file 20` to keep the false-positive count
-bounded. Round 2 prompt-variant experiments evaluate only the two
-LLM reviewers; the static baseline is variant-agnostic.
+bounded. The static reviewer is prompt-agnostic, so prompt-variant
+experiments evaluate only the two LLM reviewers.
 
 ## Metrics
 
@@ -111,135 +143,155 @@ full hunk source range).
 
 | metric                  | definition                                                                                          |
 |---|---|
-| `instance_hit_rate`     | instances where the reviewer hit ≥1 oracle hunk under tolerance N, over total instances scored (20). |
-| `site_recall`           | oracle sites hit, over total oracle sites across scored instances (32 in the pilot).                |
-| `file_level_hit_rate`   | instances where the reviewer emitted ≥1 valid comment on any oracle file, ignoring line numbers.    |
+| `instance_hit_rate`     | instances where the reviewer hit at least one oracle hunk under tolerance N, over the 100 instances scored. |
+| `site_recall`           | oracle sites hit, over total oracle sites across scored instances.                                  |
+| `file_level_hit_rate`   | instances where the reviewer emitted at least one valid comment on any oracle file, ignoring line numbers. |
 | `false_positives_per_instance_mean` | mean of `n_comments - n_hits` across instances.                                            |
-| `precision@k`           | mean over instances of `(#hits within top-k by severity-desc then line-asc) / min(k, n_comments)`.  |
 
-`precision@k` confidence intervals are not reported in this pilot
-because the denominator differs per instance (clipped to `min(k,
-n_comments)`); a CI would require either bootstrapping over instances
-on the per-comment data or a different aggregation. The CSV column
-order in `outputs/round2/h_lite/round1_with_ci.csv` marks these CI
-columns `unavailable`.
+## Results (n=100, tolerance N=3)
 
-### Tolerance sensitivity
+Two prompt variants are scaled to n=100: Variant A (`v1`, the
+baseline, which keeps the no-speculation clause) and Variant B
+(`v1b`, identical except that clause is removed). The static reviewer
+is variant-agnostic.
 
-Hit-rate under three tolerance values, derived post-hoc from the
-Round 1 per-comment distances (numerator: instances with ≥1 comment
-whose minimum line-gap to an oracle hunk in the same file is ≤ N;
-denominator: 20). Wilson 95% CIs in brackets:
-
-| reviewer          | t = 0          | t = 3 (default)            | t = 10         |
-|---|---|---|---|
-| `claude-sonnet-4-5` | 0/20 = 0% [0.000, 0.161] | 0/20 = 0% [0.000, 0.161] | 1/20 = 5% [0.009, 0.236] |
-| `gpt-4o-mini`       | 2/20 = 10% [0.028, 0.301] | 3/20 = 15% [0.052, 0.360] | 4/20 = 20% [0.081, 0.416] |
-| `static`            | 2/20 = 10% [0.028, 0.301] | 3/20 = 15% [0.052, 0.360] | 5/20 = 25% [0.112, 0.469] |
-
-`t = 3` is the default; `t = 10` raises every reviewer by at most a
-couple of instances. The dominant failure mode for Claude in Round 1
-is **not** "right region, just outside tolerance"; it is "right
-file, wrong region by tens of lines". See §Diagnostic Round.
-
-## Preliminary results
-
-Round 1 baseline, all three reviewers, default prompt `v1`,
-`tolerance = 3`. Rate cells show `count / 20` (or `/ 32` for
-`site_recall`) followed by the Wilson 95% interval.
-
-| reviewer          | instance hit rate           | file-level hit rate         | site recall                  | FP / instance |
+| reviewer / variant   | instance hit rate            | file-level hit rate | site recall | FP / instance |
 |---|---|---|---|---:|
-| `claude-sonnet-4-5` | 0 / 20 = 0% [0.000, 0.161]  | 16 / 20 = 80% [0.584, 0.919] | 0 / 32 = 0% [0.000, 0.107]   | 1.50 |
-| `gpt-4o-mini`       | 3 / 20 = 15% [0.052, 0.360] | 13 / 20 = 65% [0.433, 0.819] | 3 / 32 = 9% [0.032, 0.242]   | 2.20 |
-| `static`            | 3 / 20 = 15% [0.052, 0.360] | 15 / 20 = 75% [0.531, 0.888] | 4 / 32 = 13% [0.050, 0.281]  | 11.75 |
+| `claude-sonnet-4-5` A | 12/100 = 0.12 [0.070, 0.198] | 0.83 | 0.081 | 1.60 |
+| `gpt-4o-mini` A       | 7/100 = 0.07 [0.034, 0.137]  | 0.51 | 0.047 | 1.99 |
+| `claude-sonnet-4-5` B | 16/100 = 0.16 [0.101, 0.244] | 1.00 | 0.114 | 2.20 |
+| `gpt-4o-mini` B       | 29/100 = 0.29 [0.210, 0.385] | 0.97 | 0.201 | 5.15 |
+| `static`              | 27/100 = 0.27 [0.193, 0.364] | n/a  | 0.208 | 12.41 |
 
-Because this is a 20-instance pilot, confidence intervals are wide
-and the results should not be interpreted as a conclusive model
-ranking.
+Machine-readable cells are in `outputs/n100/variant_summary.csv`. The
+static reviewer's file-level rate was not computed in this pass.
 
-The numerator and denominator counts above are emitted in machine-
-readable form at `outputs/round2/h_lite/round1_with_ci.csv`. The
-Wilson formula, denominators, and the deliberate omission of
-continuity correction are documented in
-`outputs/round2/h_lite/ci_methodology.md`.
+What n=100 changes versus the pilot: the pilot's most eye-catching
+number, Claude scoring 0/20 at the line level under Variant A, was a
+small-sample artefact. At n=100 Claude-A scores 0.12. The Variant B
+point estimates are stable from pilot to n=100 (Claude 0.15 to 0.16,
+GPT 0.30 to 0.29).
 
-## Diagnostic round: prompt sensitivity
+## Prompt sensitivity (paired McNemar, A vs B)
 
-Round 2 swept three prompt variants on the same 20-instance pilot
-for the two LLM reviewers only:
+| reviewer | A | B | discordant (B-only / A-only) | McNemar exact p |
+|---|---:|---:|---|---|
+| `claude-sonnet-4-5` | 0.12 | 0.16 | 7 / 3  | 0.34     |
+| `gpt-4o-mini`       | 0.07 | 0.29 | 22 / 0 | < 0.0001 |
 
-- **Variant A**: Round 1 baseline (`v1`); byte-identical, reused
-  Round 1's cache so cost was $0.
-- **Variant B**: same body with the no-speculation clause removed
-  (`v1b`). The deleted sentence is `"Do not invent issues. If the
-  code looks correct to you, return an empty list."`
-- **Variant C**: Variant B plus `"Return at least one comment per
-  file, even if it is a minor observation."` (`v1c`). **Variant C is
-  a diagnostic-only probe that forces ≥1 comment per file; it is not
-  used as a headline result.**
+Removing the no-speculation clause moves GPT-4o-mini decisively (22
+instances flip to a hit, none flip away) but does not significantly
+move Claude. The prompt-sensitivity effect is specific to
+GPT-4o-mini, not a shared property of both reviewers.
 
-Comparison of Variant A and Variant B for the two LLM reviewers:
+## Model comparison (paired McNemar, Claude vs GPT)
 
-| reviewer            | A: instance hit rate         | B: instance hit rate         | B vs A |
-|---|---|---|---:|
-| `claude-sonnet-4-5` | 0 / 20 = 0% [0.000, 0.161]   | 3 / 20 = 15% [0.052, 0.360] | +15 pp |
-| `gpt-4o-mini`       | 3 / 20 = 15% [0.052, 0.360]  | 6 / 20 = 30% [0.145, 0.519] | +15 pp |
+| variant | Claude | GPT  | discordant (Claude-only / GPT-only) | McNemar exact p |
+|---|---:|---:|---|---|
+| A | 0.12 | 0.07 | 11 / 6 | 0.33  |
+| B | 0.16 | 0.29 | 6 / 19 | 0.015 |
 
-Under the Round 1 prompt, Claude's output rate and hit rate are more
-sensitive to hedge/no-speculation instructions than GPT-4o-mini's;
-relaxing the no-speculation clause raises Claude's pilot instance
-hit rate from 0% to 15% with the Wilson interval shown above. Note
-that the Wilson intervals for A and B overlap at n = 20, so the
-point-estimate deltas are direction-of-effect only and not a
-statistically resolved comparison. The companion artefact for these
-numbers is `outputs/round2/h_lite/variant_summary_with_ci.csv`; the
-qualitative analysis is in `outputs/round2/variant_analysis.md`.
+Under the baseline prompt the two reviewers are statistically
+indistinguishable. Under Variant B, GPT-4o-mini's instance hit rate
+is significantly higher, but the advantage is volume-driven: 565
+comments (5.15 FP/instance) against Claude's 237 (2.20 FP/instance).
 
-Variant C and an extended per-bucket discussion live in
-`outputs/round2/diagnostic_summary.md` and
-`outputs/round2/variant_analysis.md`.
+## Tolerance sensitivity (zero additional API cost)
+
+Re-scoring the stored comments at three tolerances, with the oracle
+and matcher held fixed (`outputs/n100/tolerance_sweep.csv`):
+
+| N | claude A | gpt A | claude B | gpt B |
+|---:|---:|---:|---:|---:|
+| 0  | 0.10 | 0.06 | 0.14 | 0.20 |
+| 3  | 0.12 | 0.07 | 0.16 | 0.29 |
+| 10 | 0.18 | 0.12 | 0.24 | 0.40 |
+
+Hit rates rise monotonically with tolerance, as expected. The GPT-B
+over Claude-B ordering holds across all three.
+
+## Oracle construct validity (30-instance audit)
+
+The benchmark assumes a fix patch's hunk source ranges mark the buggy
+code a reviewer should flag. To test that assumption a stratified
+30-instance sample (all 10 repos) from the n=100 study was audited by
+hand: each reconstructed oracle site was labelled `bug`, `related`,
+or `unrelated`. Labels were drafted with LLM assistance and
+human-confirmed; the method and per-site verdicts are in
+`outputs/n100/oracle_validity_report.md` and
+`outputs/n100/oracle_validity_cards.md`.
+
+- Site-level bug-site fraction: 24/48 = 0.50, Wilson 95% [0.36, 0.64].
+- Instances with at least one bug site: 20/30 = 0.67.
+- Instances with no bug site: 10/30 = 0.33, Wilson 95% [0.19, 0.51].
+  Six are explicit feature or enhancement requests where the pre-fix
+  code has no defect.
+
+This is construct-validity evidence on a 30-instance sample, not a
+proportion estimate over full SWE-bench Lite, and the interval is
+wide. It licenses the claim that oracle noise is real and is
+dominated by feature/enhancement and insertion-point oracles.
+
+## Cost
+
+| stage | spend |
+|---|---:|
+| Round 1 pilot (frozen) | $0.91 |
+| Round 2 variant probe (frozen) | $1.92 |
+| n=100 extension, GPT (variants A+B) | $0.27 |
+| n=100 extension, Claude (variants A+B) | $6.43 |
+| total | $9.53 |
+
+The n=100 extension reused the 20 pilot instances as cache hits and
+billed only the 80 new instances per variant. The Claude run carried
+a $10 hard cap with an automatic abort at $9; actual spend was $6.43.
 
 ## Reproducibility
 
-One-command reproduction:
+Cache-safe default (issues no paid API calls):
 
 ```bash
 bash repro/run.sh
 ```
 
-Key fingerprint values:
+This runs the leakage test suite and prints the headline tables and
+Wilson intervals from the frozen artefacts. The current orchestrator
+does not expose a fail-on-cache-miss flag, so the script reads the
+frozen CSVs directly rather than re-invoking the paid pipeline.
+
+The full gated execution sequence for the n=100 study, including the
+dry-run cost projection, the spend gates, and the per-step commands,
+is in `docs/execution_plan_n100.md`. Frozen configuration:
 
 | field                | value                                       |
 |---|---|
 | dataset              | `princeton-nlp/SWE-bench_Lite`, split `test` |
 | sampling seed        | `42`                                        |
-| `n_requested`        | 20                                          |
-| `tolerance`          | 3                                           |
+| `n`                  | 100                                         |
+| `tolerance` (headline) | 3                                         |
 | `max_comments_per_file` | 20                                       |
-| `prompt_template_id` (Variant A) | `v1`                            |
-| Variant B / C template ids | `v1b` / `v1c`                         |
+| variants scaled to n=100 | `v1` (A) and `v1b` (B); `v1c` (C) stays a pilot-only diagnostic |
 | `strict_oracle_mode` | `false`                                     |
 | `litellm` version    | `1.83.9`                                    |
 | Python               | `3.9.12`                                    |
 
 Cache behaviour: Round 1 LLM responses live under `.cache/llm/` and
-are read-only for Round 2. Round 2 writes to `.cache/round2/llm/`.
-Variant A's cache key matches Round 1's (same `template_id`); a
-re-run under Variant A is a 100% cache hit. Variants B and C miss
-the cache on first run and cost about $1.9 in aggregate for the 20-
-instance pilot. The full `run_meta.json` records the resolved model
-ids, wall time, and run timestamp.
+are read-only. The n=100 cache accumulates under `.cache/round2/llm/`,
+append-only. The cache key is
+`sha256(resolved_model, template_id, file_path, file_content)` and
+omits the instance id, so a reused instance hits as long as its file
+content is byte-identical. The run metadata records the resolved
+model ids, wall time, and run timestamp.
 
 ## Leakage prevention
 
 The cold-review input policy is documented in
 `docs/leakage_statement.md`. The corresponding pytest assertions are
-in `tests/test_no_leakage.py` (60 parametrised cells = 20 instances ×
-3 variants); the latest pass/fail summary is at
-`outputs/round2/h_lite/leakage_audit_report.md`.
-
-To re-run the leakage tests:
+in `tests/test_no_leakage.py`: every (instance, prompt variant, file)
+cell is checked for verbatim leakage of the problem statement, hints
+text, patch markers, test patch, test names, and oracle line numbers.
+No Claude call is issued on a new instance until its prompt has
+passed these assertions.
 
 ```bash
 pytest -v tests/test_no_leakage.py
@@ -247,32 +299,24 @@ pytest -v tests/test_no_leakage.py
 
 ## Limitations
 
-- **Small sample.** `n = 20` is a pilot; Wilson 95% intervals are
-  wide and pairwise deltas overlap at this size. Headline numbers
-  should be read as direction-of-effect, not as a conclusive
-  ranking.
+- **Preliminary sample.** `n = 100` is a third of SWE-bench Lite.
+  Wilson 95% intervals are roughly half the pilot's width but still
+  non-trivial; full Lite (n=300) is the next scale step.
 - **Single-file review only.** Each reviewer is shown one file per
-  instance (the file touched by the fix patch). Cross-file
-  reasoning, retrieval, or multi-file context is out of scope for
-  the pilot.
-- **Tolerance sensitivity not exhaustively swept.** Only `t ∈ {0,
-  3, 10}` was evaluated post-hoc.
-- **Dataset composition.** SWE-bench Lite is itself a curated subset
-  of SWE-bench and skews toward a handful of large Python projects;
-  the 20-instance pilot inherits any such bias.
-- **Static baseline filtering.** Ruff is invoked with
-  `--select F,E9,B,A`; Pylint is invoked with
-  `--disable=C,R,I,import-error,no-name-in-module`. These choices
-  are documented in `swe_review_bench/reviewers/static.py` and were
-  picked to keep the FP count tractable while preserving most
-  correctness-flavoured warnings.
-- **Prompt sensitivity.** The Diagnostic Round shows the Round 1
-  prompt suppresses LLM output rates; reported headline numbers
-  depend on the prompt variant chosen as canonical.
-- **No formal model ranking.** This benchmark does not claim
-  "model X is better than model Y at code review". The pilot metric
-  comparisons surface prompt-sensitivity and FP/recall trade-offs
-  only.
+  instance. Cross-file reasoning, retrieval, and multi-file context
+  are out of scope, and SWE-bench Lite is single-file by
+  construction.
+- **Oracle construct validity.** As the audit above shows, about a
+  third of audited instances carry no cold-reviewable bug, so
+  headline rates understate per-bug detection by an unknown amount; a
+  bug-only headline would require auditing all 100 instances.
+- **Two models, two prompt variants.** No top-tier model upper bound
+  (such as Claude Opus or GPT-4o), no multi-seed robustness check,
+  and no prompt variants beyond A/B/C at this scale. These are
+  deferred to the credit-funded plan in `docs/budget_request.md`.
+- **No formal model ranking.** This benchmark does not claim "model X
+  is better than model Y at code review". The comparisons surface
+  prompt-sensitivity, precision, and recall trade-offs only.
 
 ## License
 
@@ -281,10 +325,10 @@ MIT, see [`LICENSE`](LICENSE).
 ## About
 
 SWE-Review-Bench is built and maintained by an independent CS
-master's student. The pilot in this repository is the current
-contribution: an evaluation pipeline, a 20-instance run with
-frozen artefacts, a prompt-variant probe, and a pytest leakage
-suite.
+master's student. The current contribution is an evaluation
+pipeline, an n=100 preliminary study with frozen artefacts and
+paired-comparison statistics, a 30-instance oracle-validity audit,
+and a pytest leakage suite.
 
 - Contact: lmnstzz@gmail.com
 - GitHub: github.com/lmnst
