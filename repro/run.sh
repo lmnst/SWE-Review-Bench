@@ -11,6 +11,12 @@
 # swe_review_bench.run CLI does not expose a fail-on-cache-miss flag, so
 # this script does not re-invoke the orchestrator; the headline tables
 # are read directly from the frozen CSVs.
+#
+# Scope: the leakage suite below covers the full n=100 study. The Round 1
+# and Variant tables this script prints are the frozen n=20 pilot
+# artefacts. The n=100 headline tables, paired McNemar, tolerance sweep,
+# and oracle-validity audit are in docs/preliminary_results.md and
+# outputs/n100/.
 
 set -euo pipefail
 
@@ -129,7 +135,8 @@ fi
 
 banner "running leakage tests"
 note "this exercises every (instance, prompt variant) combination in the"
-note "20-instance pilot; expected wall time on a warm repo cache is ~45-60 s."
+note "100-instance study; the first run also clones repos new to the n=100"
+note "sample, so cold wall time can exceed a few minutes."
 if ! "${PY}" -m pytest -v tests/test_no_leakage.py; then
     fail "leakage tests failed -- repo is NOT safe to publish in current state"
 fi
@@ -138,7 +145,7 @@ fi
 # Step 5: Round 1 baseline
 # ---------------------------------------------------------------------------
 
-banner "Round 1 baseline (cache-replay path)"
+banner "Round 1 baseline, n=20 pilot (cache-replay path)"
 note "swe_review_bench.run does not currently support a fail-on-cache-miss"
 note "flag, so we do not re-invoke the orchestrator here. The Round 1"
 note "headline numbers are read straight from outputs/summary.csv and"
@@ -168,7 +175,7 @@ PY
 # Step 6: Variant B reproduction
 # ---------------------------------------------------------------------------
 
-banner "Round 2 prompt-variant sweep (cache-replay path)"
+banner "Round 2 prompt-variant sweep, n=20 pilot (cache-replay path)"
 note "Variant B and C cache lives under .cache/round2/llm/ and was"
 note "produced by Milestone F.3. As with Round 1 we do not re-invoke the"
 note "sweep here; we print the existing summary instead."
