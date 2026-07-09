@@ -37,7 +37,17 @@ env/
 outputs/cache/
 outputs/round2/cache/
 
+# Validity study: reports and small CSVs are tracked; bulk intermediates
+# (post-fix file dumps, mining scratch, raw model output) go in these
+# subdirectories by convention and are never committed
+outputs/validity_study/tmp/
+outputs/validity_study/cache/
+outputs/validity_study/raw/
+
 # Compiled / OS noise
 *.pyc
 .DS_Store
 Thumbs.db
+
+# Owner's local study notes (not part of the repo)
+学习笔记/
