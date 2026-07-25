@@ -1,0 +1,7 @@
+cell_x,cell_y,n,x_hits,y_hits,both_hit,x_only,y_only,neither,union,jaccard
+claude-sonnet-4-5/A,claude-sonnet-4-5/B,100,12,16,9,3,7,81,19,0.47368421052631576
+claude-sonnet-4-5/A,gpt-4o-mini/A,100,12,7,1,11,6,82,18,0.05555555555555555
+claude-sonnet-4-5/A,gpt-4o-mini/B,100,12,29,6,6,23,65,35,0.17142857142857143
+claude-sonnet-4-5/B,gpt-4o-mini/A,100,16,7,3,13,4,80,20,0.15
+claude-sonnet-4-5/B,gpt-4o-mini/B,100,16,29,10,6,19,65,35,0.2857142857142857
+gpt-4o-mini/A,gpt-4o-mini/B,100,7,29,7,0,22,71,29,0.2413793103448276

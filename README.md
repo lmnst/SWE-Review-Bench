@@ -3,6 +3,12 @@
 A benchmark for **cold code-review bug finding** on SWE-bench Lite.
 Current state: an evaluation pipeline and an n=100 preliminary study.
 
+> **Preliminary study, frozen.** A measurement-validity write-up of this
+> instrument — what the n=100 results can and cannot support, a
+> 30-instance oracle audit, and two exploratory appendices (hit-set
+> overlap, no-enrichment) — is in
+> [`docs/validity_study/tech_report.md`](docs/validity_study/tech_report.md).
+
 ## Motivation
 
 SWE-bench measures whether a system can resolve a known issue when
